@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://freelee.me/test.html</loc>
+    
+    <lastmod>2018-10-22T10:40:14.580Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://freelee.me/hystrix_dashboard.html</loc>
     
-    <lastmod>2018-10-22T10:35:03.822Z</lastmod>
+    <lastmod>2018-10-22T10:35:33.484Z</lastmod>
     
   </url>
   
