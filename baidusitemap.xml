@@ -5,17 +5,15 @@
     
   <url>
     <loc>https://freelee.me/hystrix_dashboard.html</loc>
-    <lastmod>2018-10-22T06:14:43.658Z</lastmod>
+    <lastmod>2018-10-22T10:35:03.822Z</lastmod>
     <data>
         <display>
-        <title>SpringBoot2.x配置hystrix-dashboard，出现Unable to connect to Command Metric Stream错误</title>
+        <title>配置hystrix-dashboard，出现Unable to connect to Command Metric Stream错误</title>
         <pubTime>2018-10-22T03:58:46.896Z</pubTime>
         
-        <tag>Hystrix</tag>
+        <tag>SpringCloud</tag>
          
         <tag>Hystrix-dashboard</tag>
-         
-        <tag>SpringCloud</tag>
          
         <tag>QA</tag>
          
@@ -37,9 +35,9 @@
         <title>配置Eureka出现Unable to start embedded Tomcat错误</title>
         <pubTime>2018-10-20T07:36:40.969Z</pubTime>
         
-        <tag>SpringCloud</tag>
-         
         <tag>Eureka</tag>
+         
+        <tag>SpringCloud</tag>
          
         <tag>QA</tag>
          
@@ -252,8 +250,6 @@
         <title>线性回归之波士顿房价预测</title>
         <pubTime>2018-05-11T08:13:40.284Z</pubTime>
         
-        <tag>Machine Learning</tag>
-         
         <tag>feature scaling</tag>
          
         <tag>boston price</tag>
@@ -263,6 +259,8 @@
         <tag>k折交叉验证</tag>
          
         <tag>线性回归</tag>
+         
+        <tag>Machine Learning</tag>
          
          
            

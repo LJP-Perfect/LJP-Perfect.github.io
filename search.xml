@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[SpringBoot2.x配置hystrix-dashboard，出现Unable to connect to Command Metric Stream错误]]></title>
+    <title><![CDATA[配置hystrix-dashboard，出现Unable to connect to Command Metric Stream错误]]></title>
     <url>%2Fhystrix_dashboard.html</url>
     <content type="text"><![CDATA[配置Hystrix-dashboard后进入监控页面出现Unable to connect to Command Metric Stream。本来还以为配置监控面板应该是件比较简单的事情，没想到被SpringBoot版本坑了。当前的SpringBoot版本为2.0.4.RELEASE，SpringCloud版本为Finchley.M9。新建一个hystrix_dashboard模块，导入相应的依赖spring-cloud-starter-netflix-hystrix-dashboard。在Main启动类上加上@EnableHystrixDashboard注解，配置文件配置一下端口和应用名即可。并且在消费模块配置actuator依赖。这时打开dashboard输入URL后就是下面这个样子。&nbsp;找了很多解决方案，才发现是actuator版本问题。actuator的2.x版本endpoint是在/actuator之下的，并且只暴露了health和info端点。详细文档点我 所以需要为服务实例添加hystrix.stream端点。management: endpoints: web: exposure: include: ['hystrix.stream','info','health'] 此时重启后发现日志输出Registered ‘/actuator/hystrix.stream’ to hystrix.stream-actuator-endpoint再输入http: //localhost:8100/actuator/hystrix.stream就发现可以进行监控了。如下图：&nbsp;如果想直接通过http: //localhost:8100/hystrix.stream，只需要配置端点的base-path即可management: endpoints: web: base-path: / 理论上修改base-path应该就可行了的，但是又出错了。哎，又不知道是哪里的问题，先留着吧！贴一张hystrix-dashboard界面各部分介绍图：]]></content>
       <categories>
         <category>SpringCloud</category>
       </categories>
       <tags>
-        <tag>Hystrix</tag>
-        <tag>Hystrix-dashboard</tag>
         <tag>SpringCloud</tag>
+        <tag>Hystrix-dashboard</tag>
         <tag>QA</tag>
       </tags>
   </entry>
@@ -22,8 +21,8 @@
         <category>SpringCloud</category>
       </categories>
       <tags>
-        <tag>SpringCloud</tag>
         <tag>Eureka</tag>
+        <tag>SpringCloud</tag>
         <tag>QA</tag>
       </tags>
   </entry>
@@ -124,12 +123,12 @@
         <category>Machine Learning</category>
       </categories>
       <tags>
-        <tag>Machine Learning</tag>
         <tag>feature scaling</tag>
         <tag>boston price</tag>
         <tag>bp算法</tag>
         <tag>k折交叉验证</tag>
         <tag>线性回归</tag>
+        <tag>Machine Learning</tag>
       </tags>
   </entry>
   <entry>
@@ -158,13 +157,13 @@
   </entry>
   <entry>
     <title></title>
-    <url>%2Fgooglea4979d339ced872b.html</url>
-    <content type="text"><![CDATA[google-site-verification: googlea4979d339ced872b.html]]></content>
+    <url>%2Fbaidu_verify_w2CJZAKCk7.html</url>
+    <content type="text"><![CDATA[w2CJZAKCk7]]></content>
   </entry>
   <entry>
     <title></title>
-    <url>%2Fbaidu_verify_w2CJZAKCk7.html</url>
-    <content type="text"><![CDATA[w2CJZAKCk7]]></content>
+    <url>%2Fgooglea4979d339ced872b.html</url>
+    <content type="text"><![CDATA[google-site-verification: googlea4979d339ced872b.html]]></content>
   </entry>
   <entry>
     <title></title>
@@ -182,23 +181,23 @@
     <content type="text"><![CDATA[关于我浙江理工大学 计算机专业在读常逛B站，收获”老婆”无数“恐女症”&nbsp;&nbsp;没错就是和龙之介那个男人一样喜爱简约风，喜欢生活充满新鲜感会点Java，目前正在学习搭建后台项目梦想：做一名合格的程序猿足矣联系我Mail：871560465@qq.comSteam：Freelee（一起Play Game啊）QQ：871560465WeChat：JPLee0920github：https://github.com/LJP-Perfect]]></content>
   </entry>
   <entry>
-    <title><![CDATA[games]]></title>
-    <url>%2Fgames%2Findex.html</url>
-    <content type="text"><![CDATA[L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":75,"height":150,"scaling":2,"horizontalOffset":10,"verticalOffset":-40},"mobile":{"show":false,"Scaling":0.5},"log":false,"tagMode":false}); window.ityped.init(document.querySelector(‘.ityped’), { strings : [‘ 网瘾少年(女)们，快玩游戏吧’], //可以写无限条句子，只要用逗号隔开 typeSpeed: 155, //打字的速度 backSpeed: 60, //删除字的速度 startDelay: 500, //每一句开始打字停顿的时间 backDelay: 2500, //每一句删除字的停顿时间 loop: false, //是否循环动画 showCursor: true, //是否显示光标 cursorChar: “︳”, //设置光标字符 });#Bullseye]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[game]]></title>
     <url>%2Fgame%2Findex.html</url>
     <content type="text"><![CDATA[L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":75,"height":150,"scaling":2,"horizontalOffset":10,"verticalOffset":-40},"mobile":{"show":false,"Scaling":0.5},"log":false,"tagMode":false}); window.ityped.init(document.querySelector(‘.ityped’), { strings : [‘ 大战三百回合’], //可以写无限条句子，只要用逗号隔开 typeSpeed: 155, //打字的速度 backSpeed: 60, //删除字的速度 startDelay: 500, //每一句开始打字停顿的时间 backDelay: 2500, //每一句删除字的停顿时间 loop: false, //是否循环动画 showCursor: true, //是否显示光标 cursorChar: “︳”, //设置光标字符 });#Bullseye]]></content>
   </entry>
   <entry>
-    <title><![CDATA[timeline]]></title>
-    <url>%2Ftimeline%2Findex.html</url>
-    <content type="text"><![CDATA[]]></content>
+    <title><![CDATA[games]]></title>
+    <url>%2Fgames%2Findex.html</url>
+    <content type="text"><![CDATA[L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":75,"height":150,"scaling":2,"horizontalOffset":10,"verticalOffset":-40},"mobile":{"show":false,"Scaling":0.5},"log":false,"tagMode":false}); window.ityped.init(document.querySelector(‘.ityped’), { strings : [‘ 网瘾少年(女)们，快玩游戏吧’], //可以写无限条句子，只要用逗号隔开 typeSpeed: 155, //打字的速度 backSpeed: 60, //删除字的速度 startDelay: 500, //每一句开始打字停顿的时间 backDelay: 2500, //每一句删除字的停顿时间 loop: false, //是否循环动画 showCursor: true, //是否显示光标 cursorChar: “︳”, //设置光标字符 });#Bullseye]]></content>
   </entry>
   <entry>
     <title><![CDATA[tags]]></title>
     <url>%2Ftags%2Findex.html</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[timeline]]></title>
+    <url>%2Ftimeline%2Findex.html</url>
     <content type="text"><![CDATA[]]></content>
   </entry>
 </search>
