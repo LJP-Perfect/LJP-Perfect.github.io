@@ -4,40 +4,16 @@
 
     
   <url>
-    <loc>https://freelee.me/test.html</loc>
-    <lastmod>2018-10-22T10:40:14.580Z</lastmod>
-    <data>
-        <display>
-        <title>Test</title>
-        <pubTime>2018-10-22T10:39:49.927Z</pubTime>
-        
-        <tag>Eureka</tag>
-         
-        <tag>SpringCloud</tag>
-         
-        <tag>QA</tag>
-         
-         
-           
-             
-              <breadCrumb title="Test" url="https://freelee.me/categories/Test/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://freelee.me/hystrix_dashboard.html</loc>
-    <lastmod>2018-10-22T10:35:33.484Z</lastmod>
+    <lastmod>2018-10-22T23:57:28.842Z</lastmod>
     <data>
         <display>
-        <title>配置hystrix-dashboard，出现Unable to connect to Command Metric Stream错误</title>
+        <title>SpringBoot2.0.4配置hystrix-dashboard，出现Unable to connect to Command Metric Stream错误</title>
         <pubTime>2018-10-22T03:58:46.896Z</pubTime>
         
         <tag>SpringCloud</tag>
          
-        <tag>QA</tag>
+        <tag>报错</tag>
          
         <tag>Hystrix-dashboard</tag>
          
@@ -53,17 +29,17 @@
     
   <url>
     <loc>https://freelee.me/eureka.html</loc>
-    <lastmod>2018-10-22T06:13:41.555Z</lastmod>
+    <lastmod>2018-10-22T23:57:10.538Z</lastmod>
     <data>
         <display>
-        <title>配置Eureka出现Unable to start embedded Tomcat错误</title>
+        <title>SpringBoot2.0.4配置Eureka出现Unable to start embedded Tomcat错误</title>
         <pubTime>2018-10-20T07:36:40.969Z</pubTime>
         
         <tag>Eureka</tag>
          
         <tag>SpringCloud</tag>
          
-        <tag>QA</tag>
+        <tag>报错</tag>
          
          
            
@@ -274,8 +250,6 @@
         <title>线性回归之波士顿房价预测</title>
         <pubTime>2018-05-11T08:13:40.284Z</pubTime>
         
-        <tag>Machine Learning</tag>
-         
         <tag>feature scaling</tag>
          
         <tag>boston price</tag>
@@ -285,6 +259,8 @@
         <tag>k折交叉验证</tag>
          
         <tag>线性回归</tag>
+         
+        <tag>Machine Learning</tag>
          
          
            
