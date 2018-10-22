@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>https://freelee.me/hystrix_dashboard.html</loc>
+    <lastmod>2018-10-22T06:14:43.658Z</lastmod>
+    <data>
+        <display>
+        <title>SpringBoot2.x配置hystrix-dashboard，出现Unable to connect to Command Metric Stream错误</title>
+        <pubTime>2018-10-22T03:58:46.896Z</pubTime>
+        
+        <tag>Hystrix</tag>
+         
+        <tag>Hystrix-dashboard</tag>
+         
+        <tag>SpringCloud</tag>
+         
+        <tag>QA</tag>
+         
+         
+           
+             
+              <breadCrumb title="SpringCloud" url="https://freelee.me/categories/SpringCloud/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://freelee.me/eureka.html</loc>
+    <lastmod>2018-10-22T06:13:41.555Z</lastmod>
+    <data>
+        <display>
+        <title>配置Eureka出现Unable to start embedded Tomcat错误</title>
+        <pubTime>2018-10-20T07:36:40.969Z</pubTime>
+        
+        <tag>SpringCloud</tag>
+         
+        <tag>Eureka</tag>
+         
+        <tag>QA</tag>
+         
+         
+           
+             
+              <breadCrumb title="SpringCloud" url="https://freelee.me/categories/SpringCloud/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>https://freelee.me/tensorflow.html</loc>
+    <lastmod>2018-10-20T02:07:07.304Z</lastmod>
+    <data>
+        <display>
+        <title>ubuntu下配置tensorflow(gpu)</title>
+        <pubTime>2018-05-16T11:35:09.977Z</pubTime>
+        
+        <tag>anaconda</tag>
+         
+        <tag>tensorflow配置</tag>
+         
+         
+           
+             
+              <breadCrumb title="Tensorflow" url="https://freelee.me/categories/Tensorflow/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://freelee.me/springboot(%E4%B8%80).html</loc>
+    <lastmod>2018-10-20T02:06:34.853Z</lastmod>
+    <data>
+        <display>
+        <title>SpringBoot整合项目练习</title>
+        <pubTime>2018-09-14T03:57:32.761Z</pubTime>
+        
+        <tag>SpringBoot</tag>
+         
+        <tag>MyBatis</tag>
+         
+        <tag>Swagger2</tag>
+         
+        <tag>Druid</tag>
+         
+         
+           
+             
+              <breadCrumb title="SpringBoot" url="https://freelee.me/categories/SpringBoot/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://freelee.me/docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html</loc>
+    <lastmod>2018-10-20T02:06:05.080Z</lastmod>
+    <data>
+        <display>
+        <title>Docker学习笔记</title>
+        <pubTime>2018-10-19T13:10:57.631Z</pubTime>
+        
+        <tag>Docker</tag>
+         
+        <tag>学习笔记</tag>
+         
+        <tag>Dockerfile</tag>
+         
+        <tag>容器数据卷</tag>
+         
+         
+           
+             
+              <breadCrumb title="Docker" url="https://freelee.me/categories/Docker/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://freelee.me/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.html</loc>
+    <lastmod>2018-09-28T08:58:53.952Z</lastmod>
+    <data>
+        <display>
+        <title>计算机网络学习记录</title>
+        <pubTime>2018-09-28T08:09:11.146Z</pubTime>
+        
+        <tag>计算机网络</tag>
+         
+        <tag>cookie</tag>
+         
+        <tag>session</tag>
+         
+        <tag>http协议</tag>
+         
+         
+           
+             
+              <breadCrumb title="计算机网络" url="https://freelee.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://freelee.me/ubuntu.html</loc>
+    <lastmod>2018-09-12T13:40:13.242Z</lastmod>
+    <data>
+        <display>
+        <title>Ubuntu安装及常见问题解决</title>
+        <pubTime>2018-05-16T11:29:18.768Z</pubTime>
+        
+        <tag>ubuntu</tag>
+         
+         
+           
+             
+              <breadCrumb title="Ubuntu" url="https://freelee.me/categories/Ubuntu/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://freelee.me/SVM.html</loc>
+    <lastmod>2018-09-12T13:40:01.344Z</lastmod>
+    <data>
+        <display>
+        <title>浅析SVM之概念介绍</title>
+        <pubTime>2018-05-06T08:27:18.598Z</pubTime>
+        
+        <tag>Machine Learning</tag>
+         
+        <tag>margin</tag>
+         
+        <tag>hypeplane</tag>
+         
+        <tag>classfication</tag>
+         
+         
+           
+             
+              <breadCrumb title="Machine Learning" url="https://freelee.me/categories/Machine-Learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://freelee.me/NG.html</loc>
+    <lastmod>2018-09-12T13:39:55.937Z</lastmod>
+    <data>
+        <display>
+        <title>Ng课程完结篇</title>
+        <pubTime>2018-05-21T14:24:07.831Z</pubTime>
+        
+        <tag>Machine Learning</tag>
+         
+         
+           
+             
+              <breadCrumb title="Machine Learning" url="https://freelee.me/categories/Machine-Learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://freelee.me/ArrayList.html</loc>
+    <lastmod>2018-09-12T13:39:08.841Z</lastmod>
+    <data>
+        <display>
+        <title>ArrayList</title>
+        <pubTime>2018-05-26T06:45:57.554Z</pubTime>
+        
+        <tag>array</tag>
+         
+        <tag>Java容器</tag>
+         
+        <tag>List</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="https://freelee.me/categories/Java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://freelee.me/Linear_Regression.html</loc>
+    <lastmod>2018-05-26T06:44:45.614Z</lastmod>
+    <data>
+        <display>
+        <title>线性回归之波士顿房价预测</title>
+        <pubTime>2018-05-11T08:13:40.284Z</pubTime>
+        
+        <tag>Machine Learning</tag>
+         
+        <tag>feature scaling</tag>
+         
+        <tag>boston price</tag>
+         
+        <tag>bp算法</tag>
+         
+        <tag>k折交叉验证</tag>
+         
+        <tag>线性回归</tag>
+         
+         
+           
+             
+              <breadCrumb title="Machine Learning" url="https://freelee.me/categories/Machine-Learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</urlset>
