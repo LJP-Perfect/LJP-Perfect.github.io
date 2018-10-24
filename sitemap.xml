@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://freelee.me/about/index.html</loc>
+    
+    <lastmod>2018-10-24T11:00:51.993Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://freelee.me/hystrix_dashboard.html</loc>
     
     <lastmod>2018-10-22T23:57:28.842Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://freelee.me/eureka.html</loc>
     
     <lastmod>2018-10-22T23:57:10.538Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://freelee.me/about/index.html</loc>
-    
-    <lastmod>2018-10-20T03:02:15.743Z</lastmod>
     
   </url>
   
