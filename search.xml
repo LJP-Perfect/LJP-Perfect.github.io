@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Redis作为Mybatis辅存]]></title>
+    <url>%2Fredis%E4%BD%9C%E4%B8%BA%E8%BE%85%E5%AD%98.html</url>
+    <content type="text"><![CDATA[Q&amp;A个人思考Q1：为什么要用redis作为mysql的辅存？A：与数据库的交互无非读和写。在读这一方面，数据的访问一般来说都不是平均的，有些数据经常被访问称为“热数据”，还有一些不会经常访问到的则称为冷数据。如果要在这里优化，第一感觉肯定是去优化热数据的读取速度，和计算机组成原理学的缓存一样，越靠近CPU的Cache读写速度越快，所以我觉得在读取时可以先去访问redis，没有再去数据库里查找。然后就是写这一方面，可能瞬间写的压力非常大，造成拥挤甚至可能系统出错。因为在写的速度方面redis应该是优于直接写入数据库的，所以可以先写入redis，然后再慢慢写入数据库。这样一来，对写的压力减少了一些，但是数据的同步问题出现了。Q2：那为什么选择redis还不是其他的工具？A：emm…我觉得这个问题只能先留着吧，其他也都没学过。注：以上纯属个人想法，不一定都是正确的。查阅一番资料后因为redis是存储在内存中，mysql是存储在硬盘中，redis的读取速度比直接读取mysql快很多，所以一般用于热数据的读取，不适合数据高一致性（直接操作Mysql，就不要考虑用redis速度快的特性来写数据）。如果使用redis作为缓存的话，先去redis中判断数据是否存在，如果存在，则直接返回redis中的数据。不存在的话，就会去数据库中读取并缓存到redis中。同时Redis支持数据的持久化，服务器关闭重启后可以重新加载。有两种持久化方式：快照（RDB文件）和追加式文件（AOF文件）。RDB持久化方式会在一个特定的间隔保存那个时间点的一个数据快照，AOF方式会记录每一个写操作。在服务启动时，这些记录会被逐条执行重建原来的数据。（默认情况下，AOF被优先使用）Redis自动进行热数据缓存：方案一、设置ExpiredTime，如果访问频繁的数据生存时间会一直更新，冷数据如果不再次访问的话，就会在指定时间内过期清除掉，间接实现热数据缓存。两种方式实现Redis缓存一、全局实现Redis缓存1、导入依赖&lt;dependency> &lt;groupId>org.springframework.boot&lt;/groupId> &lt;artifactId>spring-boot-starter-data-redis&lt;/artifactId> &lt;/dependency> 2、重写org.apache.ibatis.cache.Cache//使用redisTemplate的对应方法重写Cache的方法 public class RedisCache implements Cache { private static final Logger logger = LoggerFactory.getLogger(RedisCache.class); //实例一个读写锁 private final ReadWriteLock readWriteLock = new ReentrantReadWriteLock(); private final String id; // cache instance id private RedisTemplate redisTemplate; private static final long EXPIRE_TIME_IN_MINUTES = 30; // redis过期时间 //必须要有一个初始化id的构造器 public RedisCache(String id) { if (id == null) { throw new IllegalArgumentException("Cache instances require an ID"); } this.id = id; } @Override public String getId() { return id; } /** * Put query result to redis * * @param key * @param value */ @Override @SuppressWarnings("unchecked") public void putObject(Object key, Object value) { try { RedisTemplate redisTemplate = getRedisTemplate(); ValueOperations opsForValue = redisTemplate.opsForValue(); opsForValue.set(key, value, EXPIRE_TIME_IN_MINUTES, TimeUnit.MINUTES); logger.debug("Put query result to redis"); } catch (Throwable t) { logger.error("Redis put failed", t); } } /** * Get cached query result from redis * * @param key * @return */ @Override public Object getObject(Object key) { try { RedisTemplate redisTemplate = getRedisTemplate(); ValueOperations opsForValue = redisTemplate.opsForValue(); logger.debug("Get cached query result from redis"); return opsForValue.get(key); } catch (Throwable t) { logger.error("Redis get failed, fail over to db", t); return null; } } /** * Remove cached query result from redis * * @param key * @return */ @Override @SuppressWarnings("unchecked") public Object removeObject(Object key) { try { RedisTemplate redisTemplate = getRedisTemplate(); redisTemplate.delete(key); logger.debug("Remove cached query result from redis"); } catch (Throwable t) { logger.error("Redis remove failed", t); } return null; } /** * Clears this cache instance */ @Override public void clear() { RedisTemplate redisTemplate = getRedisTemplate(); redisTemplate.execute((RedisCallback) connection -> { connection.flushDb(); return null; }); logger.debug("Clear all the cached query result from redis"); } /** * This method is not used * * @return */ @Override public int getSize() { return 0; } @Override public ReadWriteLock getReadWriteLock() { return readWriteLock; } private RedisTemplate getRedisTemplate() { if (redisTemplate == null) { //若redisTemplate不存在，则从ApplicaitonContext取出redisTemplate redisTemplate = SpringContextHolder.getBean("redisTemplate"); } return redisTemplate; } } 3、CMS层省略不放进文章里了，开始测试第一次根据UserName查询User可以看到Cache Hit Ratio 为0，说明在Redis中没有对应的缓存，所以从数据库中查询数据。在RedisDesktopManager可以看到已经存入一个序列化数据。第二次查询就可以看到Cache Hit Ratio为1.0，并且没有查询数据库的日志消息，说明此次查询是从Redis获取的数据。二、使用注解来使用Redis缓存1、构造fastjson序列化器需要另外导入fastjson依赖&lt;dependency> &lt;groupId>com.alibaba&lt;/groupId> &lt;artifactId>fastjson&lt;/artifactId> &lt;version>1.2.31&lt;/version> &lt;/dependency> 配置FastJsonRedisSerializerpublic class FastJsonRedisSerializer&lt;T> implements RedisSerializer&lt;T> { private static final Charset DEFAULT_CHARSET = Charset.forName("UTF-8"); private Class&lt;T> clazz; public FastJsonRedisSerializer(Class&lt;T> clazz) { this.clazz = clazz; //fastjson1.2.25版本之后，需要开启AutoTypeSupport //否则从redis缓存中读取的数据会报autoType is not support.错误。 ParserConfig.getGlobalInstance().setAutoTypeSupport(true); } //重写序列化方法 @Override public byte[] serialize(T t) throws SerializationException { if (t == null) { return new byte[0]; } return JSON.toJSONString(t, SerializerFeature.WriteClassName).getBytes(DEFAULT_CHARSET); } //重写反序列化方法 @Override public T deserialize(byte[] bytes) throws SerializationException { if (bytes == null || bytes.length &lt;= 0) { return null; } String str = new String(bytes, DEFAULT_CHARSET); return (T) JSON.parseObject(str, clazz); } } 配置完序列化器后，再配置Redis缓存的相关配置。@Configuration @EnableCaching public class RedisCacheConfig { @Bean public RedisTemplate&lt;Object, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) { RedisTemplate&lt;Object, Object> template = new RedisTemplate&lt;>(); template.setConnectionFactory(redisConnectionFactory); //因为SpringBoot整合的最新的redis中的CacheManager是没有RedisTemplate的构造方法的。 //所以似乎在RedisTemplate设置Key和Value的序列器是无效的（实践过确实如此） //但是在此设置之后，在cacheManager配置时也可以从redisTemplate中取出来 FastJsonRedisSerializer&lt;Object> serializer=new FastJsonRedisSerializer&lt;>(Object.class); template.setValueSerializer(serializer); //使用StringRedisSerializer来序列化和反序列化redis的key值 template.setKeySerializer(new StringRedisSerializer()); template.afterPropertiesSet(); return template; } /*配置缓存管理器 *如果配置自己定义的序列化器，要传RedisTemplate进来。或者在里面重新实例序列化器，这里使用前者的方式 */ @Bean public CacheManager cacheManager(RedisConnectionFactory redisConnectionFactory,RedisTemplate redisTemplate) { // 生成一个默认配置，通过config对象即可对缓存进行自定义配置 // serialzeValuesWith方法会重新实例化RedisCacheConfiguration，所以在生成配置时，不能分开配置，只能进行链式配置 RedisCacheConfiguration config = RedisCacheConfiguration.defaultCacheConfig() .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(redisTemplate.getValueSerializer())) .serializeKeysWith(RedisSerializationContext.SerializationPair.fromSerializer(redisTemplate.getKeySerializer())); config = config.entryTtl(Duration.ofMinutes(1)) // 设置缓存的默认过期时间，也是使用Duration设置 .disableCachingNullValues(); // 不缓存空值 // 设置一个初始化的缓存空间set集合 Set&lt;String> cacheNames = new HashSet&lt;>(); cacheNames.add("user"); Map&lt;String, RedisCacheConfiguration> configMap = new HashMap&lt;>(); configMap.put("user", config.entryTtl(Duration.ofSeconds(120))); RedisCacheManager cacheManager = RedisCacheManager.builder(redisConnectionFactory) // 使用自定义的缓存配置初始化一个cacheManager .initialCacheNames(cacheNames) // 注意这两句的调用顺序，一定要先调用该方法设置初始化的缓存名，再初始化相关的配置 .withInitialCacheConfigurations(configMap) .build(); return cacheManager; } } 然后在需要缓存的地方加上@Cacheable注解即可，unless表示如果结果为空则不进行缓存@Cacheable(value = "user", key = "#root.targetClass + #name", unless = "#result eq null") 进行测试查询，第一次仍然是去访问数据库，第二次是从redis缓存中查到的。参考资料SpringBoot2整合Redis缓存Redis持久化_segmentfault有没有方法让redis 自动做热数据缓存？]]></content>
+      <categories>
+        <category>SpringBoot</category>
+      </categories>
+      <tags>
+        <tag>SpringBoot</tag>
+        <tag>Redis</tag>
+        <tag>缓存</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[SpringBoot2.0.4配置hystrix-dashboard，出现Unable to connect to Command Metric Stream错误]]></title>
     <url>%2Fhystrix_dashboard.html</url>
     <content type="text"><![CDATA[配置Hystrix-dashboard后进入监控页面出现Unable to connect to Command Metric Stream。本来还以为配置监控面板应该是件比较简单的事情，没想到被SpringBoot版本坑了。当前的SpringBoot版本为2.0.4.RELEASE，SpringCloud版本为Finchley.M9。新建一个hystrix_dashboard模块，导入相应的依赖spring-cloud-starter-netflix-hystrix-dashboard。在Main启动类上加上@EnableHystrixDashboard注解，配置文件配置一下端口和应用名即可。并且在消费模块配置actuator依赖。这时打开dashboard输入URL后就是下面这个样子。&nbsp;找了很多解决方案，才发现是actuator版本问题。actuator的2.x版本endpoint是在/actuator之下的，并且只暴露了health和info端点。详细文档点我 所以需要为服务实例添加hystrix.stream端点。management: endpoints: web: exposure: include: ['hystrix.stream','info','health'] 此时重启后发现日志输出Registered ‘/actuator/hystrix.stream’ to hystrix.stream-actuator-endpoint再输入http: //localhost:8100/actuator/hystrix.stream就发现可以进行监控了。如下图：&nbsp;如果想直接通过http: //localhost:8100/hystrix.stream，只需要配置端点的base-path即可management: endpoints: web: base-path: / 理论上修改base-path应该就可行了的，但是又出错了。哎，又不知道是哪里的问题，先留着吧！贴一张hystrix-dashboard界面各部分介绍图：]]></content>
@@ -8,9 +21,9 @@
         <category>SpringCloud</category>
       </categories>
       <tags>
+        <tag>Hystrix-dashboard</tag>
         <tag>SpringCloud</tag>
         <tag>报错</tag>
-        <tag>Hystrix-dashboard</tag>
       </tags>
   </entry>
   <entry>
@@ -21,9 +34,9 @@
         <category>SpringCloud</category>
       </categories>
       <tags>
-        <tag>Eureka</tag>
         <tag>SpringCloud</tag>
         <tag>报错</tag>
+        <tag>Eureka</tag>
       </tags>
   </entry>
   <entry>
@@ -123,12 +136,12 @@
         <category>Machine Learning</category>
       </categories>
       <tags>
+        <tag>Machine Learning</tag>
         <tag>feature scaling</tag>
         <tag>boston price</tag>
         <tag>bp算法</tag>
         <tag>k折交叉验证</tag>
         <tag>线性回归</tag>
-        <tag>Machine Learning</tag>
       </tags>
   </entry>
   <entry>
@@ -181,6 +194,11 @@
     <content type="text"><![CDATA[关于我浙江理工大学 计算机专业在读常逛B站，轻度中二“恐女症”&nbsp;&nbsp;没错就是和龙之介那个男人一样喜爱简约风，喜欢生活充满新鲜感会点Java，目前正在学习搭建后台项目梦想：做一名合格的程序猿足矣联系我Mail：871560465@qq.comSteam：Freelee（一起Play Game啊）QQ：871560465WeChat：JPLee0920github：https://github.com/LJP-Perfect]]></content>
   </entry>
   <entry>
+    <title><![CDATA[games]]></title>
+    <url>%2Fgames%2Findex.html</url>
+    <content type="text"><![CDATA[L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":75,"height":150,"scaling":2,"horizontalOffset":10,"verticalOffset":-40},"mobile":{"show":false,"Scaling":0.5},"log":false,"tagMode":false}); window.ityped.init(document.querySelector(‘.ityped’), { strings : [‘ 网瘾少年(女)们，快玩游戏吧’], //可以写无限条句子，只要用逗号隔开 typeSpeed: 155, //打字的速度 backSpeed: 60, //删除字的速度 startDelay: 500, //每一句开始打字停顿的时间 backDelay: 2500, //每一句删除字的停顿时间 loop: false, //是否循环动画 showCursor: true, //是否显示光标 cursorChar: “︳”, //设置光标字符 });#Bullseye]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[tags]]></title>
     <url>%2Ftags%2Findex.html</url>
     <content type="text"><![CDATA[]]></content>
@@ -189,11 +207,6 @@
     <title><![CDATA[timeline]]></title>
     <url>%2Ftimeline%2Findex.html</url>
     <content type="text"><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[games]]></title>
-    <url>%2Fgames%2Findex.html</url>
-    <content type="text"><![CDATA[L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":75,"height":150,"scaling":2,"horizontalOffset":10,"verticalOffset":-40},"mobile":{"show":false,"Scaling":0.5},"log":false,"tagMode":false}); window.ityped.init(document.querySelector(‘.ityped’), { strings : [‘ 网瘾少年(女)们，快玩游戏吧’], //可以写无限条句子，只要用逗号隔开 typeSpeed: 155, //打字的速度 backSpeed: 60, //删除字的速度 startDelay: 500, //每一句开始打字停顿的时间 backDelay: 2500, //每一句删除字的停顿时间 loop: false, //是否循环动画 showCursor: true, //是否显示光标 cursorChar: “︳”, //设置光标字符 });#Bullseye]]></content>
   </entry>
   <entry>
     <title><![CDATA[game]]></title>
