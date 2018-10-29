@@ -5,14 +5,43 @@
     
   <url>
     <loc>https://freelee.me/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%83%A8%E7%97%9B%E7%9A%84Docker%E9%83%A8%E7%BD%B2SpringBoot.html</loc>
-    <lastmod>2018-10-29T06:03:30.802Z</lastmod>
+    <lastmod>2018-10-29T06:19:15.657Z</lastmod>
     <data>
         <display>
-        <title></title>
+        <title>记一次惨痛的Docker部署SpringBoot经历</title>
         <pubTime>2018-10-29T06:03:39.299Z</pubTime>
         
+        <tag>Docker</tag>
+         
+        <tag>SpringBoot</tag>
+         
+        <tag>微服务</tag>
+         
          
            
+             
+              <breadCrumb title="Docker" url="https://freelee.me/categories/Docker/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://freelee.me/github%E4%BB%A3%E7%A0%81%E4%B8%8A%E4%BC%A0.html</loc>
+    <lastmod>2018-10-29T06:18:18.087Z</lastmod>
+    <data>
+        <display>
+        <title>github代码上传</title>
+        <pubTime>2018-10-29T06:19:24.622Z</pubTime>
+        
+        <tag>github</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术杂烩" url="https://freelee.me/categories/%E6%8A%80%E6%9C%AF%E6%9D%82%E7%83%A9/"/>
+          
         </display>
     </data>
     </url>
@@ -289,6 +318,8 @@
         <title>线性回归之波士顿房价预测</title>
         <pubTime>2018-05-11T08:13:40.284Z</pubTime>
         
+        <tag>Machine Learning</tag>
+         
         <tag>feature scaling</tag>
          
         <tag>boston price</tag>
@@ -298,8 +329,6 @@
         <tag>k折交叉验证</tag>
          
         <tag>线性回归</tag>
-         
-        <tag>Machine Learning</tag>
          
          
            
