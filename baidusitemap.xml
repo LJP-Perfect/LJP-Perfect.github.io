@@ -4,28 +4,8 @@
 
     
   <url>
-    <loc>https://freelee.me/freetalk.html</loc>
-    <lastmod>2018-10-31T08:35:13.301Z</lastmod>
-    <data>
-        <display>
-        <title>我的技能树（惨不忍睹）</title>
-        <pubTime>2018-10-31T08:34:03.051Z</pubTime>
-        
-        <tag>技能树</tag>
-         
-         
-           
-             
-              <breadCrumb title="杂谈" url="https://freelee.me/categories/%E6%9D%82%E8%B0%88/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://freelee.me/github%E4%BB%A3%E7%A0%81%E4%B8%8A%E4%BC%A0.html</loc>
-    <lastmod>2018-10-30T01:08:24.171Z</lastmod>
+    <lastmod>2018-11-02T01:00:22.563Z</lastmod>
     <data>
         <display>
         <title>github代码上传</title>
@@ -37,6 +17,26 @@
            
              
               <breadCrumb title="技术杂烩" url="https://freelee.me/categories/%E6%8A%80%E6%9C%AF%E6%9D%82%E7%83%A9/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://freelee.me/freetalk.html</loc>
+    <lastmod>2018-10-31T08:36:13.266Z</lastmod>
+    <data>
+        <display>
+        <title>我的技能树（惨不忍睹）</title>
+        <pubTime>2018-10-31T08:34:03.051Z</pubTime>
+        
+        <tag>技能树</tag>
+         
+         
+           
+             
+              <breadCrumb title="杂谈" url="https://freelee.me/categories/%E6%9D%82%E8%B0%88/"/>
           
         </display>
     </data>
@@ -268,13 +268,13 @@
         <title>浅析SVM之概念介绍</title>
         <pubTime>2018-05-06T08:27:18.598Z</pubTime>
         
+        <tag>Machine Learning</tag>
+         
         <tag>margin</tag>
          
         <tag>hypeplane</tag>
          
         <tag>classfication</tag>
-         
-        <tag>Machine Learning</tag>
          
          
            
@@ -338,8 +338,6 @@
         <title>线性回归之波士顿房价预测</title>
         <pubTime>2018-05-11T08:13:40.284Z</pubTime>
         
-        <tag>Machine Learning</tag>
-         
         <tag>feature scaling</tag>
          
         <tag>boston price</tag>
@@ -349,6 +347,8 @@
         <tag>k折交叉验证</tag>
          
         <tag>线性回归</tag>
+         
+        <tag>Machine Learning</tag>
          
          
            
