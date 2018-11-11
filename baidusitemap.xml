@@ -4,6 +4,38 @@
 
     
   <url>
+    <loc>https://freelee.me/cloud.html</loc>
+    <lastmod>2018-11-11T04:27:46.416Z</lastmod>
+    <data>
+        <display>
+        <title>微服务项目初步搭建</title>
+        <pubTime>2018-11-11T04:13:53.734Z</pubTime>
+        
+        <tag>SpringBoot</tag>
+         
+        <tag>SpringCloud</tag>
+         
+        <tag>Shiro</tag>
+         
+        <tag>Nginx</tag>
+         
+        <tag>JWT</tag>
+         
+        <tag>Docker</tag>
+         
+        <tag>Eureka</tag>
+         
+         
+           
+             
+              <breadCrumb title="SpringCloud" url="https://freelee.me/categories/SpringCloud/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://freelee.me/github%E4%BB%A3%E7%A0%81%E4%B8%8A%E4%BC%A0.html</loc>
     <lastmod>2018-11-02T01:00:22.563Z</lastmod>
     <data>
@@ -52,9 +84,9 @@
         <title>记一次惨痛的Docker部署SpringBoot经历</title>
         <pubTime>2018-10-29T06:03:39.299Z</pubTime>
         
-        <tag>Docker</tag>
-         
         <tag>SpringBoot</tag>
+         
+        <tag>Docker</tag>
          
         <tag>微服务</tag>
          
@@ -124,9 +156,9 @@
         <title>SpringBoot2.0.4配置Eureka出现Unable to start embedded Tomcat错误</title>
         <pubTime>2018-10-20T07:36:40.969Z</pubTime>
         
-        <tag>Eureka</tag>
-         
         <tag>SpringCloud</tag>
+         
+        <tag>Eureka</tag>
          
         <tag>报错</tag>
          
