@@ -3,9 +3,10 @@
 
 
     
+    
   <url>
     <loc>https://freelee.me/cloud.html</loc>
-    <lastmod>2018-11-11T04:27:46.416Z</lastmod>
+    <lastmod>2018-11-11T04:28:44.474Z</lastmod>
     <data>
         <display>
         <title>微服务项目初步搭建</title>
@@ -74,7 +75,6 @@
     </data>
     </url>
 
-    
     
   <url>
     <loc>https://freelee.me/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%83%A8%E7%97%9B%E7%9A%84Docker%E9%83%A8%E7%BD%B2SpringBoot.html</loc>
@@ -370,6 +370,8 @@
         <title>线性回归之波士顿房价预测</title>
         <pubTime>2018-05-11T08:13:40.284Z</pubTime>
         
+        <tag>Machine Learning</tag>
+         
         <tag>feature scaling</tag>
          
         <tag>boston price</tag>
@@ -379,8 +381,6 @@
         <tag>k折交叉验证</tag>
          
         <tag>线性回归</tag>
-         
-        <tag>Machine Learning</tag>
          
          
            
