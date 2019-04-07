@@ -2,121 +2,121 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://freelee.me/about/index.html</loc>
+    <loc>https://freelee.me/Linear_Regression.html</loc>
     
-    <lastmod>2019-03-01T01:51:37.026Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://freelee.me/cloud.html</loc>
-    
-    <lastmod>2018-11-11T04:28:44.474Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://freelee.me/github%E4%BB%A3%E7%A0%81%E4%B8%8A%E4%BC%A0.html</loc>
-    
-    <lastmod>2018-11-02T01:00:22.563Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://freelee.me/freetalk.html</loc>
-    
-    <lastmod>2018-10-31T08:36:13.266Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://freelee.me/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%83%A8%E7%97%9B%E7%9A%84Docker%E9%83%A8%E7%BD%B2SpringBoot.html</loc>
-    
-    <lastmod>2018-10-29T06:19:52.829Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://freelee.me/redis%E4%BD%9C%E4%B8%BA%E8%BE%85%E5%AD%98.html</loc>
-    
-    <lastmod>2018-10-25T02:45:41.059Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://freelee.me/hystrix_dashboard.html</loc>
-    
-    <lastmod>2018-10-22T23:57:28.842Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://freelee.me/eureka.html</loc>
-    
-    <lastmod>2018-10-22T23:57:10.538Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://freelee.me/tensorflow.html</loc>
-    
-    <lastmod>2018-10-20T02:07:07.304Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://freelee.me/springboot(%E4%B8%80).html</loc>
-    
-    <lastmod>2018-10-20T02:06:34.853Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://freelee.me/docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html</loc>
-    
-    <lastmod>2018-10-20T02:06:05.080Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://freelee.me/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.html</loc>
-    
-    <lastmod>2018-09-28T08:58:53.952Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://freelee.me/ubuntu.html</loc>
-    
-    <lastmod>2018-09-12T13:40:13.242Z</lastmod>
+    <lastmod>2019-04-07T12:34:06.118Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://freelee.me/SVM.html</loc>
     
-    <lastmod>2018-09-12T13:40:01.344Z</lastmod>
+    <lastmod>2019-04-07T12:33:17.441Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://freelee.me/tensorflow.html</loc>
+    
+    <lastmod>2019-04-07T12:33:01.831Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://freelee.me/ubuntu.html</loc>
+    
+    <lastmod>2019-04-07T12:32:49.614Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://freelee.me/NG.html</loc>
     
-    <lastmod>2018-09-12T13:39:55.937Z</lastmod>
+    <lastmod>2019-04-07T12:32:30.057Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://freelee.me/ArrayList.html</loc>
     
-    <lastmod>2018-09-12T13:39:08.841Z</lastmod>
+    <lastmod>2019-04-07T12:32:14.383Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://freelee.me/Linear_Regression.html</loc>
+    <loc>https://freelee.me/springboot(%E4%B8%80).html</loc>
     
-    <lastmod>2018-05-26T06:44:45.614Z</lastmod>
+    <lastmod>2019-04-07T12:31:42.725Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://freelee.me/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.html</loc>
+    
+    <lastmod>2019-04-07T12:31:25.631Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://freelee.me/docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html</loc>
+    
+    <lastmod>2019-04-07T12:31:03.735Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://freelee.me/eureka.html</loc>
+    
+    <lastmod>2019-04-07T12:30:50.494Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://freelee.me/hystrix_dashboard.html</loc>
+    
+    <lastmod>2019-04-07T12:30:23.999Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://freelee.me/redis%E4%BD%9C%E4%B8%BA%E8%BE%85%E5%AD%98.html</loc>
+    
+    <lastmod>2019-04-07T12:30:04.011Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://freelee.me/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%83%A8%E7%97%9B%E7%9A%84Docker%E9%83%A8%E7%BD%B2SpringBoot.html</loc>
+    
+    <lastmod>2019-04-07T12:29:53.501Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://freelee.me/github%E4%BB%A3%E7%A0%81%E4%B8%8A%E4%BC%A0.html</loc>
+    
+    <lastmod>2019-04-07T12:29:26.686Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://freelee.me/freetalk.html</loc>
+    
+    <lastmod>2019-04-07T12:29:13.104Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://freelee.me/cloud.html</loc>
+    
+    <lastmod>2019-04-07T12:28:13.400Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://freelee.me/about/index.html</loc>
+    
+    <lastmod>2019-03-01T01:51:37.026Z</lastmod>
     
   </url>
   

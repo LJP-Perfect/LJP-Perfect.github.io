@@ -1,5 +1,5 @@
+https://freelee.me/cloud.html
+https://freelee.me/freetalk.html
 https://freelee.me/记一次惨痛的Docker部署SpringBoot.html
-https://freelee.me/计算机网络.html
-https://freelee.me/ubuntu.html
-https://freelee.me/tensorflow.html
-https://freelee.me/SVM.html
+https://freelee.me/github代码上传.html
+https://freelee.me/redis作为辅存.html
