@@ -14,17 +14,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[你好，陈同学]]></title>
-    <url>%2F%E9%99%88%E5%90%8C%E5%AD%A6%E4%BD%A0%E5%A5%BD.html</url>
-    <content type="text"><![CDATA[序章 Prologue—&nbsp;&nbsp;&nbsp;&nbsp;”我喜欢你”—&nbsp;&nbsp;&nbsp;&nbsp;”好啊”日常 Daliy4月7日 多云转小雨 星期三计划 Schedule&nbsp;&nbsp;五一(5.3-5.5)游玩 地点未定Story to be continued]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[微服务项目初步搭建]]></title>
     <url>%2Fcloud.html</url>
     <content type="text"><![CDATA[一个初步的微服务项目，docker部署。基于SpringBoot和SpringCloud整合Shiro、JWT、zuul、Eureka、docker、nginx等技术。项目简介这个小项目目前初步搭建好了微服务脚手架的一部分。使用shiro+jwt构建鉴权体系，spring cloud zuul做API网关进行路由转发，nginx通过反向代理对网关进行高可用和负载均衡和静态化，Eureka进行服务治理（Feign进行服务调用）。源码地址技术选型SpringBoot 2.0.4.RELEASESpringCloud Finchley.M9Shiro 1.4.0JWT 3.4.0Maven 3.5.4Jdk 8项目关键项目使用shiro+jwt的鉴权机制，通过JWTFilter将jwt整合到shiro，JWTToken存放用户名。JWTFilter部分代码@Override protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) { if(isLoginAttempt(request,response)){ try{ //检查token executeLogin(request,response); return true; }catch (Exception e){ //token错误 responseError(response,e.getMessage()); } } //请求头不存在Token，可能是未登录时（游客）的访问状态，则无需检查token return true; } shiro中添加JWTFilter，对所有之前（其他过滤器）未匹配到的请求进行过滤。ShiroConfig部分代码 @Bean public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager){ ShiroFilterFactoryBean filterFactoryBean=new ShiroFilterFactoryBean(); Map&lt;String, Filter> filterMap=new HashMap&lt;>(); filterMap.put("jwt",new JWTFilter()); filterFactoryBean.setFilters(filterMap); filterFactoryBean.setSecurityManager(securityManager); Map&lt;String,String> filterChainDefinitionMap=new HashMap&lt;>(); filterChainDefinitionMap.put("/logout","anon"); filterChainDefinitionMap.put("/login","anon"); filterChainDefinitionMap.put("/**","jwt"); filterFactoryBean.setLoginUrl("/login"); filterFactoryBean.setSuccessUrl("/index"); filterFactoryBean.setUnauthorizedUrl("/403"); filterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap); return filterFactoryBean; } 项目出现的BUG打包时，报缺少公共模块jar包的错误。公共模块不需要打包，所以不需要添加maven插件，否则会报错，因为其他模块在打包的时候会自动添加依赖进去，如果这里打包了，其他的模块就找不到该依赖了。父项目添加springboot的maven插件打包时会报Unable to find main class。[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:2.0.4.RELEASE:repackage (default) on project common-util: Execu tion default of goal org.springframework.boot:spring-boot-maven-plugin:2.0.4.RELEASE:repackage failed: Unable to find main class 改成以下的编译和测试的maven插件，项目可以打包成功。这个问题还没有找到合理的解释方案，我想可能是因为spring-boot-maven-plugin要打包成可执行jar包，而公共模块里是没有启动类（main class）的，所以使用此插件会报错。&lt;build> &lt;plugins> &lt;plugin> &lt;groupId>org.apache.maven.plugins&lt;/groupId> &lt;artifactId>maven-compiler-plugin&lt;/artifactId> &lt;version>3.1&lt;/version> &lt;configuration> &lt;source>${java.version}&lt;/source> &lt;target>${java.version}&lt;/target> &lt;/configuration> &lt;/plugin> &lt;plugin> &lt;groupId>org.apache.maven.plugins&lt;/groupId> &lt;artifactId>maven-surefire-plugin&lt;/artifactId> &lt;version>2.19.1&lt;/version> &lt;configuration> &lt;skipTests>true&lt;/skipTests> &lt;!--默认关掉单元测试 --> &lt;/configuration> &lt;/plugin> &lt;/plugins> &lt;/build> 子模块的依赖中加入docker-maven-plugin的插件。此插件可以快速的打包镜像、上传镜像等。最好加入spring-boot-maven-plugin插件，我记得打包过程中出现过问题就是缺少这个插件的原因（好像是空指针异常，记不太清了）。&lt;build> &lt;plugins> &lt;plugin> &lt;groupId>org.springframework.boot&lt;/groupId> &lt;artifactId>spring-boot-maven-plugin&lt;/artifactId> &lt;/plugin> &lt;plugin> &lt;groupId>com.spotify&lt;/groupId> &lt;artifactId>docker-maven-plugin&lt;/artifactId> &lt;version>1.0.0&lt;/version> &lt;executions> &lt;execution> &lt;id>build-image&lt;/id> &lt;phase>package&lt;/phase> &lt;goals> &lt;goal>build&lt;/goal> &lt;/goals> &lt;/execution> &lt;/executions> &lt;configuration> &lt;imageName>${project.parent.artifactId}/${project.artifactId}&lt;/imageName> &lt;dockerHost> http://192.168.43.2:2375&lt;/dockerHost> &lt;dockerDirectory>${project.basedir}&lt;/dockerDirectory> &lt;resources> &lt;resource> &lt;targetPath>/&lt;/targetPath> &lt;directory>${project.build.directory}&lt;/directory> &lt;include>${project.build.finalName}.jar&lt;/include> &lt;/resource> &lt;/resources> &lt;/configuration> &lt;dependencies> &lt;dependency> &lt;groupId>org.apache.httpcomponents&lt;/groupId> &lt;artifactId>httpclient&lt;/artifactId> &lt;version>4.5.6&lt;/version> &lt;/dependency> &lt;dependency> &lt;groupId>javax.activation&lt;/groupId> &lt;artifactId>activation&lt;/artifactId> &lt;version>1.1.1&lt;/version> &lt;/dependency> &lt;/dependencies> &lt;/plugin> &lt;/plugins> &lt;/build> docker不能使用localhost因为 bridge 是 Docker 默认的网络模式，换句话说，我一个 host 上的各个 container 从 docker 获取的 IP 都是不一样的（在主机编译部署后大家都是 localhost，但是在 docker 里面情况就不一样了）。解决方法利用docker的主机名，为eureka的容器配置一个主机名（任意即可），比如eureka-server。eureka-server模块配置文件eureka: client: fetch-registry: false register-with-eureka: false service-url: defaultZone: http://eureka-server:8000/eureka/ eureka-client模块配置文件eureka: client: service-url: defaultZone: http://eureka-server:8000/eureka/ 整合shiro出现No bean of type ‘org.apache.shiro.realm本来是把shiro的一些配置和JWTToken类这些放到公共模块中。但是一直报如上错误，提示我创建shiro.ini，但是这样的话采用硬编码方式把认证授权信息写在INI文件中,可维护性差。没办法，只能把shiro有关的配置和LoginController放在一个模块中。zuul会过滤敏感头部，导致丢失token。zuul会过滤掉Cookie, Set-Cookie, Authorization的header信息，导致jwt的token在转发时丢失。在ZuulProperties源码中可以看到默认的sensitiveHeaders如下。（如果头部出现含有sensitiveHeaders的信息，就不会添加到转发的请求中）private Set&lt;String> sensitiveHeaders = new LinkedHashSet(Arrays.asList("Cookie", "Set-Cookie", "Authorization")); 只要修改zuul的sensitiveHeaders配置即可。设置为空，设置为空，设置为空。zuul: sensitive-headers: nginx的http模块。我只要在nginx配置文件加入http{}，就会报“http&quot; directive is not allowed here in /etc/nginx/conf.d/app.conf错误。真的是个谜之错误，-_-。参考资料Spirng boot maven多模块打包踩坑Spring Cloud实战小贴士：Zuul处理Cookie和重定向gitee项目 micro-serviceexception is feign.RetryableException: Connection refused (Connection refused) executing GET http：//……]]></content>
@@ -182,17 +171,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Ubuntu安装及常见问题解决]]></title>
-    <url>%2Fubuntu.html</url>
-    <content type="text"><![CDATA[搬自自己的csdnUbuntu——从安装到放弃（/逃 ）【此教程包括ubuntu的安装、关机卡死（Nvidia安装）、无法连接wifi等解决方案】]]></content>
-      <categories>
-        <category>Ubuntu</category>
-      </categories>
-      <tags>
-        <tag>ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[ubuntu下配置tensorflow(gpu)]]></title>
     <url>%2Ftensorflow.html</url>
     <content type="text"><![CDATA[搬自自己的csdnUbuntu16.04环境下从Anaconda3安装到Tensorflow(gpu)及pycharm安装和测试mnist完整教程]]></content>
@@ -202,6 +180,17 @@
       <tags>
         <tag>anaconda</tag>
         <tag>tensorflow配置</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Ubuntu安装及常见问题解决]]></title>
+    <url>%2Fubuntu.html</url>
+    <content type="text"><![CDATA[搬自自己的csdnUbuntu——从安装到放弃（/逃 ）【此教程包括ubuntu的安装、关机卡死（Nvidia安装）、无法连接wifi等解决方案】]]></content>
+      <categories>
+        <category>Ubuntu</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -280,11 +269,6 @@
     <content type="text"><![CDATA[L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":75,"height":150,"scaling":2,"horizontalOffset":10,"verticalOffset":-40},"mobile":{"show":false,"Scaling":0.5},"log":false,"tagMode":false}); window.ityped.init(document.querySelector(‘.ityped’), { strings : [‘ 大战三百回合’], //可以写无限条句子，只要用逗号隔开 typeSpeed: 155, //打字的速度 backSpeed: 60, //删除字的速度 startDelay: 500, //每一句开始打字停顿的时间 backDelay: 2500, //每一句删除字的停顿时间 loop: false, //是否循环动画 showCursor: true, //是否显示光标 cursorChar: “︳”, //设置光标字符 });#Bullseye]]></content>
   </entry>
   <entry>
-    <title><![CDATA[timeline]]></title>
-    <url>%2Ftimeline%2Findex.html</url>
-    <content type="text"><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[tags]]></title>
     <url>%2Ftags%2Findex.html</url>
     <content type="text"><![CDATA[]]></content>
@@ -293,5 +277,10 @@
     <title><![CDATA[games]]></title>
     <url>%2Fgames%2Findex.html</url>
     <content type="text"><![CDATA[L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":75,"height":150,"scaling":2,"horizontalOffset":10,"verticalOffset":-40},"mobile":{"show":false,"Scaling":0.5},"log":false,"tagMode":false}); window.ityped.init(document.querySelector(‘.ityped’), { strings : [‘ 网瘾少年(女)们，快玩游戏吧’], //可以写无限条句子，只要用逗号隔开 typeSpeed: 155, //打字的速度 backSpeed: 60, //删除字的速度 startDelay: 500, //每一句开始打字停顿的时间 backDelay: 2500, //每一句删除字的停顿时间 loop: false, //是否循环动画 showCursor: true, //是否显示光标 cursorChar: “︳”, //设置光标字符 });#Bullseye]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[timeline]]></title>
+    <url>%2Ftimeline%2Findex.html</url>
+    <content type="text"><![CDATA[]]></content>
   </entry>
 </search>
