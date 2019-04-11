@@ -16,7 +16,7 @@
   <entry>
     <title><![CDATA[你好，陈同学]]></title>
     <url>%2Fnicetomeetyou.html</url>
-    <content type="text"><![CDATA[序章 Prologue—&nbsp;&nbsp;&nbsp;&nbsp;”我喜欢你”—&nbsp;&nbsp;&nbsp;&nbsp;”好啊”己亥条约 Principle未定暂无日常 Daliy4月10日 多云转小雨 星期三&emsp;陈同学说晚上跑完步要做好心理准备，一再强调不要抱期待。我心想肯定也不会是什么坏事，抱一点期待还是可以的，也不多就一点点。最后她慢慢从书包里拿出一张纸条，不对，应该是一张A4纸，让回去再拆，走前嘱咐我不要抱期待。‘这么大的纸，一定写了不少东西’暗暗盘算着，打开一看。哇！！！&emsp;还真的是一点点点都没有呢！！！计划 Schedule&nbsp;&nbsp;五一(5.3-5.5)游玩 地点未定Story to be continued]]></content>
+    <content type="text"><![CDATA[序章 Prologue—&nbsp;&nbsp;&nbsp;&nbsp;”我喜欢你”—&nbsp;&nbsp;&nbsp;&nbsp;”好啊”己亥条约 Principle未定暂无日常 Daliy4月10日 多云转小雨 星期三&emsp;陈同学说晚上跑完步要做好心理准备，一再强调不要抱期待。我心想肯定也不会是什么坏事，抱一点期待还是可以的，也不多就一点点。最后她慢慢从书包里拿出一张纸条，不对，应该是一张A4纸，让回去再拆，走前嘱咐我不要抱期待。‘这么大的纸，一定写了不少东西’暗暗盘算着，打开一看。哇！！！&emsp;还真的是一点点点都没有呢！！！陈同学，你上课的高冷都在睡觉上了吗？！计划 Schedule&nbsp;&nbsp;五一(5.3-5.5)游玩 地点未定Story to be continued]]></content>
       <categories>
         <category>生活</category>
       </categories>
@@ -32,12 +32,12 @@
         <category>SpringCloud</category>
       </categories>
       <tags>
-        <tag>Docker</tag>
         <tag>SpringBoot</tag>
         <tag>SpringCloud</tag>
         <tag>Shiro</tag>
         <tag>Nginx</tag>
         <tag>JWT</tag>
+        <tag>Docker</tag>
         <tag>Eureka</tag>
       </tags>
   </entry>
@@ -71,8 +71,8 @@
         <category>Docker</category>
       </categories>
       <tags>
-        <tag>Docker</tag>
         <tag>SpringBoot</tag>
+        <tag>Docker</tag>
         <tag>微服务</tag>
       </tags>
   </entry>
@@ -212,12 +212,12 @@
         <category>Machine Learning</category>
       </categories>
       <tags>
-        <tag>Machine Learning</tag>
         <tag>feature scaling</tag>
         <tag>boston price</tag>
         <tag>bp算法</tag>
         <tag>k折交叉验证</tag>
         <tag>线性回归</tag>
+        <tag>Machine Learning</tag>
       </tags>
   </entry>
   <entry>
@@ -241,13 +241,13 @@
   </entry>
   <entry>
     <title></title>
-    <url>%2Fbaidu_verify_w2CJZAKCk7.html</url>
-    <content type="text"><![CDATA[w2CJZAKCk7]]></content>
+    <url>%2Fbaidu_verify_PQgHckNDnk.html</url>
+    <content type="text"><![CDATA[PQgHckNDnk]]></content>
   </entry>
   <entry>
     <title></title>
-    <url>%2Fbaidu_verify_PQgHckNDnk.html</url>
-    <content type="text"><![CDATA[PQgHckNDnk]]></content>
+    <url>%2Fbaidu_verify_w2CJZAKCk7.html</url>
+    <content type="text"><![CDATA[w2CJZAKCk7]]></content>
   </entry>
   <entry>
     <title></title>
@@ -270,14 +270,14 @@
     <content type="text"><![CDATA[关于我浙江理工大学 计算机专业大三在读轻度中二，轻度社交恐惧偏爱简约，喜欢生活充满新鲜感会点Java，目前正在学习搭建后台项目联系我Mail：871560465@qq.comSteam：Freelee（一起Play Game啊）github：https://github.com/LJP-Perfect]]></content>
   </entry>
   <entry>
-    <title><![CDATA[game]]></title>
-    <url>%2Fgame%2Findex.html</url>
-    <content type="text"><![CDATA[L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":75,"height":150,"scaling":2,"horizontalOffset":10,"verticalOffset":-40},"mobile":{"show":false,"Scaling":0.5},"log":false,"tagMode":false}); window.ityped.init(document.querySelector(‘.ityped’), { strings : [‘ 大战三百回合’], //可以写无限条句子，只要用逗号隔开 typeSpeed: 155, //打字的速度 backSpeed: 60, //删除字的速度 startDelay: 500, //每一句开始打字停顿的时间 backDelay: 2500, //每一句删除字的停顿时间 loop: false, //是否循环动画 showCursor: true, //是否显示光标 cursorChar: “︳”, //设置光标字符 });#Bullseye]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[图库]]></title>
     <url>%2Fgallery%2Findex.html</url>
     <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[game]]></title>
+    <url>%2Fgame%2Findex.html</url>
+    <content type="text"><![CDATA[L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":75,"height":150,"scaling":2,"horizontalOffset":10,"verticalOffset":-40},"mobile":{"show":false,"Scaling":0.5},"log":false,"tagMode":false}); window.ityped.init(document.querySelector(‘.ityped’), { strings : [‘ 大战三百回合’], //可以写无限条句子，只要用逗号隔开 typeSpeed: 155, //打字的速度 backSpeed: 60, //删除字的速度 startDelay: 500, //每一句开始打字停顿的时间 backDelay: 2500, //每一句删除字的停顿时间 loop: false, //是否循环动画 showCursor: true, //是否显示光标 cursorChar: “︳”, //设置光标字符 });#Bullseye]]></content>
   </entry>
   <entry>
     <title><![CDATA[games]]></title>
