@@ -16,7 +16,7 @@
   <entry>
     <title><![CDATA[你好，陈同学]]></title>
     <url>%2FNicetomeetyou.html</url>
-    <content type="text"><![CDATA[序章 Prologue—&nbsp;&nbsp;&nbsp;&nbsp;”我喜欢你”—&nbsp;&nbsp;&nbsp;&nbsp;”好啊”己亥条约 Principle未定暂无日常 Daliy4月10日 多云转小雨 星期三&emsp;陈同学说晚上跑完步要做好心理准备，一再强调不要让我抱期待。心想肯定也不会是什么坏事，抱一点期待还是可以的，也不多就一点点。最后她慢慢从书包里拿出一张纸条，不对，应该是一张A4纸，让回去再拆，走前嘱咐我不要抱期待。‘这么大的纸，一定写了不少东西‘暗暗盘算着，打开一看。哇！！！&emsp;emmm，还真的是一点点点都没有呢！！！计划 Schedule&nbsp;&nbsp;五一(5.3-5.5)游玩 地点未定Story to be continued]]></content>
+    <content type="text"><![CDATA[序章 Prologue—&nbsp;&nbsp;&nbsp;&nbsp;”我喜欢你”—&nbsp;&nbsp;&nbsp;&nbsp;”好啊”己亥条约 Principle未定暂无日常 Daliy4月10日 多云转小雨 星期三&emsp;陈同学说晚上跑完步要做好心理准备，一再强调不要让我抱期待。心想肯定也不会是什么坏事，抱一点期待还是可以的，也不多就一点点。最后她慢慢从书包里拿出一张纸条，不对，应该是一张A4纸，让回去再拆，走前嘱咐我不要抱期待。‘这么大的纸，一定写了不少东西‘暗暗盘算着，打开一看。哇！！！&emsp;emmm，还真的是一点点点都没有呢！！！4月11日 阴 星期三&emsp;今晚充满整个操场的大概只有陈同学和我的哈哈哈，和（一脸凝重大爷蓝牙耳机中的）《小跳蛙》了吧，哈哈哈嗝！计划 Schedule&nbsp;&nbsp;五一(5.3-5.5)游玩 地点未定Story to be continued]]></content>
       <categories>
         <category>生活</category>
       </categories>
@@ -182,6 +182,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Ubuntu安装及常见问题解决]]></title>
+    <url>%2Fubuntu.html</url>
+    <content type="text"><![CDATA[搬自自己的csdnUbuntu——从安装到放弃（/逃 ）【此教程包括ubuntu的安装、关机卡死（Nvidia安装）、无法连接wifi等解决方案】]]></content>
+      <categories>
+        <category>Ubuntu</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[ubuntu下配置tensorflow(gpu)]]></title>
     <url>%2Ftensorflow.html</url>
     <content type="text"><![CDATA[搬自自己的csdnUbuntu16.04环境下从Anaconda3安装到Tensorflow(gpu)及pycharm安装和测试mnist完整教程]]></content>
@@ -191,17 +202,6 @@
       <tags>
         <tag>anaconda</tag>
         <tag>tensorflow配置</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Ubuntu安装及常见问题解决]]></title>
-    <url>%2Fubuntu.html</url>
-    <content type="text"><![CDATA[搬自自己的csdnUbuntu——从安装到放弃（/逃 ）【此教程包括ubuntu的安装、关机卡死（Nvidia安装）、无法连接wifi等解决方案】]]></content>
-      <categories>
-        <category>Ubuntu</category>
-      </categories>
-      <tags>
-        <tag>ubuntu</tag>
       </tags>
   </entry>
   <entry>
