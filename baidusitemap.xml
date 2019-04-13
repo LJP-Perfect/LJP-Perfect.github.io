@@ -5,7 +5,7 @@
     
   <url>
     <loc>https://freelee.me/Nicetomeetyou.html</loc>
-    <lastmod>2019-04-12T04:00:00.000Z</lastmod>
+    <lastmod>2019-04-13T04:00:00.000Z</lastmod>
     <data>
         <display>
         <title>你好，陈同学</title>
@@ -17,6 +17,94 @@
            
              
               <breadCrumb title="生活" url="https://freelee.me/categories/%E7%94%9F%E6%B4%BB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://freelee.me/freetalk.html</loc>
+    <lastmod>2019-04-13T01:01:18.586Z</lastmod>
+    <data>
+        <display>
+        <title>我的技能树（惨不忍睹）</title>
+        <pubTime>2018-10-31T04:00:00.000Z</pubTime>
+        
+        <tag>技能树</tag>
+         
+        <tag>Java</tag>
+         
+         
+           
+             
+              <breadCrumb title="生活" url="https://freelee.me/categories/%E7%94%9F%E6%B4%BB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://freelee.me/NG.html</loc>
+    <lastmod>2019-04-13T00:59:12.717Z</lastmod>
+    <data>
+        <display>
+        <title>Ng课程完结篇</title>
+        <pubTime>2018-05-21T04:00:00.000Z</pubTime>
+        
+        <tag>Machine Learning</tag>
+         
+         
+           
+             
+              <breadCrumb title="ML" url="https://freelee.me/categories/ML/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://freelee.me/tensorflow.html</loc>
+    <lastmod>2019-04-13T00:58:52.727Z</lastmod>
+    <data>
+        <display>
+        <title>ubuntu下配置tensorflow(gpu)</title>
+        <pubTime>2018-05-16T04:00:00.000Z</pubTime>
+        
+        <tag>anaconda</tag>
+         
+        <tag>tensorflow配置</tag>
+         
+         
+           
+             
+              <breadCrumb title="ML" url="https://freelee.me/categories/ML/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://freelee.me/%E6%9C%8D%E5%8A%A1%E5%A4%96%E5%8C%85%E5%9B%BD%E8%B5%9B%E6%80%BB%E7%BB%93.html</loc>
+    <lastmod>2019-04-13T00:58:24.828Z</lastmod>
+    <data>
+        <display>
+        <title>服务外包国赛总结</title>
+        <pubTime>2019-04-13T00:56:53.476Z</pubTime>
+        
+        <tag>竞赛</tag>
+         
+        <tag>服务外包</tag>
+         
+        <tag>总结</tag>
+         
+         
+           
+             
+              <breadCrumb title="竞赛" url="https://freelee.me/categories/%E7%AB%9E%E8%B5%9B/"/>
           
         </display>
     </data>
@@ -105,28 +193,6 @@
 
     
   <url>
-    <loc>https://freelee.me/tensorflow.html</loc>
-    <lastmod>2019-04-07T12:33:01.831Z</lastmod>
-    <data>
-        <display>
-        <title>ubuntu下配置tensorflow(gpu)</title>
-        <pubTime>2018-05-16T04:00:00.000Z</pubTime>
-        
-        <tag>anaconda</tag>
-         
-        <tag>tensorflow配置</tag>
-         
-         
-           
-             
-              <breadCrumb title="Tensorflow" url="https://freelee.me/categories/Tensorflow/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://freelee.me/ubuntu.html</loc>
     <lastmod>2019-04-07T12:32:49.614Z</lastmod>
     <data>
@@ -140,26 +206,6 @@
            
              
               <breadCrumb title="Ubuntu" url="https://freelee.me/categories/Ubuntu/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://freelee.me/NG.html</loc>
-    <lastmod>2019-04-07T12:32:30.057Z</lastmod>
-    <data>
-        <display>
-        <title>Ng课程完结篇</title>
-        <pubTime>2018-05-21T04:00:00.000Z</pubTime>
-        
-        <tag>Machine Learning</tag>
-         
-         
-           
-             
-              <breadCrumb title="Machine Learning" url="https://freelee.me/categories/Machine-Learning/"/>
           
         </display>
     </data>
@@ -378,26 +424,6 @@
            
              
               <breadCrumb title="技术杂烩" url="https://freelee.me/categories/%E6%8A%80%E6%9C%AF%E6%9D%82%E7%83%A9/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://freelee.me/freetalk.html</loc>
-    <lastmod>2019-04-07T12:29:13.104Z</lastmod>
-    <data>
-        <display>
-        <title>我的技能树（惨不忍睹）</title>
-        <pubTime>2018-10-31T04:00:00.000Z</pubTime>
-        
-        <tag>技能树</tag>
-         
-         
-           
-             
-              <breadCrumb title="杂谈" url="https://freelee.me/categories/%E6%9D%82%E8%B0%88/"/>
           
         </display>
     </data>

@@ -3,6 +3,31 @@
   
     
     <entry>
+      <title>服务外包国赛总结</title>
+      <link href="/%E6%9C%8D%E5%8A%A1%E5%A4%96%E5%8C%85%E5%9B%BD%E8%B5%9B%E6%80%BB%E7%BB%93.html"/>
+      <url>/%E6%9C%8D%E5%8A%A1%E5%A4%96%E5%8C%85%E5%9B%BD%E8%B5%9B%E6%80%BB%E7%BB%93.html</url>
+      <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://unpkg.com/meting@2.0.1/dist/Meting.min.js"></script><p>待更</p>]]></content>
+      
+      <categories>
+          
+          <category> 竞赛 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 竞赛 </tag>
+            
+            <tag> 服务外包 </tag>
+            
+            <tag> 总结 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>First Vlog</title>
       <link href="/First_Vlog.html"/>
       <url>/First_Vlog.html</url>
@@ -89,7 +114,7 @@
       
       <categories>
           
-          <category> 杂谈 </category>
+          <category> 生活 </category>
           
       </categories>
       
@@ -97,6 +122,8 @@
         <tags>
             
             <tag> 技能树 </tag>
+            
+            <tag> Java </tag>
             
         </tags>
       
@@ -337,7 +364,7 @@
       
       <categories>
           
-          <category> Machine Learning </category>
+          <category> ML </category>
           
       </categories>
       
@@ -358,7 +385,7 @@
       
       <categories>
           
-          <category> Tensorflow </category>
+          <category> ML </category>
           
       </categories>
       
