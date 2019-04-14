@@ -29,7 +29,7 @@
   <entry>
     <title><![CDATA[你好，陈同学]]></title>
     <url>%2FNicetomeetyou.html</url>
-    <content type="text"><![CDATA[序章 Prologue—&nbsp;&nbsp;&nbsp;&nbsp;”我喜欢你”—&nbsp;&nbsp;&nbsp;&nbsp;”好啊”条约 Principle未定暂无日常 Daliy4月10日 多云转小雨 星期三&emsp;陈同学说晚上跑完步要做好心理准备，一再强调不要让我抱期待。心想肯定也不会是什么坏事，抱一点期待还是可以的，也不多就一点点。最后她慢慢从书包里拿出一张纸条，不对，应该是一张A4纸，让回去再拆，走前嘱咐我不要抱期待。‘这么大的纸，一定写了不少东西‘暗暗盘算着，打开一看。哇！！！&emsp;emmm，还真的是一点点点都没有呢！！！4月11日 阴 星期四&emsp;今晚充满整个操场的大概只有陈同学和我的哈哈哈，和（一脸凝重大爷蓝牙耳机中的）《小跳蛙》了吧，哈哈哈嗝！4月12日 晴 星期五&emsp;今天发生了一件悲伤的事：突然想起来U盘落在上衣口袋里被我放进洗衣机里洗了，然后发生了一件比悲伤更悲伤的事：我回去找上衣口袋发现空！空！如！也！我以后再也不买了😭&emsp;这样子的话我只能欺负欺负陈同学了，站住别跑，放学后操场见。记录 Memory暂无（我这倒是有一张陈同学的“写真”（坏笑））计划 Schedule&nbsp;&nbsp;五一(5.3-5.5)游玩 横店 浙江金华Story to be continued]]></content>
+    <content type="text"><![CDATA[序章 Prologue—&nbsp;&nbsp;&nbsp;&nbsp;”我喜欢你”—&nbsp;&nbsp;&nbsp;&nbsp;”好啊”条约 Principle未定暂无日常 Daliy4月10日 多云转小雨 星期三&emsp;陈同学说晚上跑完步要做好心理准备，一再强调不要让我抱期待。心想肯定也不会是什么坏事，抱一点期待还是可以的，也不多就一点点。最后她慢慢从书包里拿出一张纸条，不对，应该是一张A4纸，让回去再拆，走前嘱咐我不要抱期待。‘这么大的纸，一定写了不少东西‘暗暗盘算着，打开一看。哇！！！&emsp;emmm，还真的是一点点点都没有呢！！！4月11日 阴 星期四&emsp;今晚充满整个操场的大概只有陈同学和我的哈哈哈，和（一脸凝重大爷蓝牙耳机中的）《小跳蛙》了吧，哈哈哈嗝！4月12日 晴 星期五&emsp;今天发生了一件悲伤的事：突然想起来U盘落在上衣口袋里被我放进洗衣机里洗了，然后发生了一件比悲伤更悲伤的事：我回去找上衣口袋发现空！空！如！也！我以后再也不买了😭&emsp;这样子的话我只能欺负欺负陈同学了，站住别跑，放学后操场见。4月13日 阴 星期六&emsp;陈同学你是玻璃做的吧，训练又伤了，成就支离破碎已收集（2/5），这太惨了吧。玩笑归玩笑，虽然这种受伤不可控，但是以后训练还是小心着点，这么伤下去谁顶得住啊。&emsp;今晚的攻略讨论的还可以，虽然我什么都没攻略出来哈哈哈，但是省了挺多钱的不错不错。还有今晚的800米太可怕了，两个400米冲刺快要了我的狗命，陈同学下次可不可以下手轻一点呢（疯狂眨眼😉，虽然好像并不太可能）。记录 Memory暂无（我这倒是有一张陈同学的“写真”（坏笑））计划 Schedule&nbsp;&nbsp;五一(5.3-5.5)游玩 横店 浙江金华Story to be continued]]></content>
       <categories>
         <category>生活</category>
       </categories>
@@ -45,13 +45,13 @@
         <category>SpringCloud</category>
       </categories>
       <tags>
-        <tag>Docker</tag>
-        <tag>Eureka</tag>
-        <tag>SpringCloud</tag>
         <tag>SpringBoot</tag>
+        <tag>SpringCloud</tag>
         <tag>Shiro</tag>
         <tag>Nginx</tag>
         <tag>JWT</tag>
+        <tag>Docker</tag>
+        <tag>Eureka</tag>
       </tags>
   </entry>
   <entry>
@@ -67,19 +67,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[记一次惨痛的Docker部署SpringBoot经历]]></title>
-    <url>%2F%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%83%A8%E7%97%9B%E7%9A%84Docker%E9%83%A8%E7%BD%B2SpringBoot.html</url>
-    <content type="text"><![CDATA[环境SpringBoot 2.0.4.RELEASEDocker 18.06.1-ceUbuntu 16.04Jdk 8Maven 3.5.4搭建SpringBoot项目导入web依赖，编写一个简单的Controller。然后添加Docker支持。&lt;!--docker maven 插件--> &lt;plugin> &lt;groupId>com.spotify&lt;/groupId> &lt;artifactId>docker-maven-plugin&lt;/artifactId> &lt;version>1.0.0&lt;/version> &lt;configuration> &lt;imageName>${project.artifactId}&lt;/imageName> &lt;!--注意 修改成远程服务器地址--> &lt;dockerHost> http://192.168.43.2:2375&lt;/dockerHost> &lt;dockerDirectory>src/main/docker&lt;/dockerDirectory> &lt;resources> &lt;resource> &lt;targetPath>/&lt;/targetPath> &lt;directory>${project.build.directory}&lt;/directory> &lt;include>${project.build.finalName}.jar&lt;/include> &lt;/resource> &lt;/resources> &lt;/configuration> &lt;dependencies> &lt;dependency> &lt;groupId>org.apache.httpcomponents&lt;/groupId> &lt;artifactId>httpclient&lt;/artifactId> &lt;version>4.5.6&lt;/version> &lt;/dependency> &lt;dependency> &lt;groupId>javax.activation&lt;/groupId> &lt;artifactId>activation&lt;/artifactId> &lt;version>1.1.1&lt;/version> &lt;/dependency> &lt;/dependencies> &lt;/plugin> 需要javax.activation依赖，不然会报java.lang.ClassNotFoundException: javax.activation.DataSource错误。环境配置好后，编写DockerfileFROM openjdk:8-jdk-alpine VOLUME /opt/common ADD dockerdemo-1.0.jar app.jar ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"] EXPOSE 8080 VOLUME ，VOLUME 指向了一个/opt/common的目录，由于 Spring Boot 使用内置的Tomcat容器，Tomcat 默认使用/opt/common作为工作目录。这个命令的效果是：在宿主机的/var/lib/docker目录下创建一个临时文件并把它链接到容器中的/opt/common目录ADD ，拷贝文件并且重命名ENTRYPOINT ，为了缩短 Tomcat 的启动时间，添加java.security.egd的系统属性指向/dev/urandom作为 ENTRYPOINT这里可以安装一款Docker integration插件，可以构建镜像，创建仓库，上传镜像等。安装这个插件后，Dockerfile文件就能显示语法了。其他功能暂时没用到。配置虚拟机环境配置Jdk 8 $ sudo apt-get update $ sudo apt-get install openjdk-8-jdk 使用java -version查看是否安装成功。然后配置jdk环境变量sudo gedit /etc/profile export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 export JRE_HOME=${JAVA_HOME}/jre export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib export PATH=${JAVA_HOME}/bin:$PATH source /etc/profile 配置Maven下载：http://mirrors.shu.edu.cn/apache/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz## 解压 tar vxf apache-maven-3.5.4-bin.tar.gz ## 移动 mv apache-maven-3.5.4 /usr/local/maven3 仍然是在/etc/profile中配置环境变量sudo gedit /etc/profile MAVEN_HOME=/usr/local/maven3 export MAVEN_HOME export PATH=${PATH}:${MAVEN_HOME}/bin source /etc/profile 构建、上传、运行镜像使用docker build插件可以快速构建。也可以在Terminal输入以下命令进行构建。mvn package docker:build 构建成功后，就可以在docker中使用docker images查看镜像。REPOSITORY TAG IMAGE ID CREATED SIZE dockerdemo latest 2d6bfc475fa7 44 hours ago 119MB 运行该镜像docker run -p 8080:8080 -t dockerdemo 运行成功后测试Controller是否成功即可。遇到的问题1、docker构建镜像报错org.apache.http.conn.ConnectTimeoutException:contact timed out如果之前没有配置过Docker的远程访问，那么应该是这个原因。开启API访问服务：$ systemctl show --property=FragmentPath docker FragmentPath=/lib/systemd/system/docker.service $ sudo gedit /lib/systemd/system/docker.service #修改ExecStart=/usr/bin/dockerd -H fd:// 为 ExecStart=/usr/bin/dockerd -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2375 #重载Docker $ sudo systemctl daemon-reload $ sudo systemctl restart docker docker -H tcp://127.0.0.1:2376 version Client: Version: 18.06.1-ce API version: 1.38 Go version: go1.10.3 Git commit: e68fc7a Built: Tue Aug 21 17:24:56 2018 OS/Arch: linux/amd64 Experimental: false Server: Engine: Version: 18.06.1-ce API version: 1.38 (minimum version 1.12) Go version: go1.10.3 Git commit: e68fc7a Built: Tue Aug 21 17:23:21 2018 OS/Arch: linux/amd64 Experimental: false 这样就说明API远程访问已开启。也可通过以下方法验证ps -ef | grep docker 可以看到2375端口已经在监听了。再进行测试查看是否成功。但是还是报了这个错误，网上找了很多没有类似问题，最后找到一个有类似问题的，不过他是将服务器部署到阿里云上的，是因为阿里云控制台里的安全组没有开启2375端口。Docker Maven插件本地构建镜像发布至远程服务器但是我这个是本地的，所以没有效果。只好重装了Ubuntu，意外的成功了，猜想可能是之前的Ubuntu或Docker的配置导致了这个错误。2、报错java.lang.ClassNotFoundException: javax.activation.DataSource是因为docker maven插件缺少javax.activation依赖，加入以下依赖&lt;dependency> &lt;groupId>javax.activation&lt;/groupId> &lt;artifactId>activation&lt;/artifactId> &lt;version>1.1.1&lt;/version> &lt;/dependency> 3、报错Add failed: stat /ver/lib/docker/tmp/docker-builderXXXXXX:no such file or dir报这个错误是因为打包名字不一致，pom.xml的artifactId与Dockerfile镜像名要一致。&nbsp;要是怎么样都不行，重装吧少年!&nbsp;参考资料Spring Boot 2.0(四)：使用 Docker 部署 Spring Bootdocker开启远程访问Docker Maven插件本地构建镜像发布至远程服务器4、为什么使用docker?之Docker建立远程连接]]></content>
-      <categories>
-        <category>Docker</category>
-      </categories>
-      <tags>
-        <tag>Docker</tag>
-        <tag>SpringBoot</tag>
-        <tag>微服务</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[github代码上传]]></title>
     <url>%2Fgithub%E4%BB%A3%E7%A0%81%E4%B8%8A%E4%BC%A0.html</url>
     <content type="text"><![CDATA[$ git init$ git add .$ git commit -m &quot;first commit&quot;$ git remote add origin https://github.com/yourName/yourRepo.git$ git push -u origin master#上传多个项目到一个仓库$ git add .$ git commit -m &quot;second commit&quot;$ git push -u origin master#push失败,本地与仓库不一致，先pull下来$ git pull --rebase origin master$ git push -u origin master]]></content>
@@ -88,6 +75,19 @@
       </categories>
       <tags>
         <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[记一次惨痛的Docker部署SpringBoot经历]]></title>
+    <url>%2F%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%83%A8%E7%97%9B%E7%9A%84Docker%E9%83%A8%E7%BD%B2SpringBoot.html</url>
+    <content type="text"><![CDATA[环境SpringBoot 2.0.4.RELEASEDocker 18.06.1-ceUbuntu 16.04Jdk 8Maven 3.5.4搭建SpringBoot项目导入web依赖，编写一个简单的Controller。然后添加Docker支持。&lt;!--docker maven 插件--> &lt;plugin> &lt;groupId>com.spotify&lt;/groupId> &lt;artifactId>docker-maven-plugin&lt;/artifactId> &lt;version>1.0.0&lt;/version> &lt;configuration> &lt;imageName>${project.artifactId}&lt;/imageName> &lt;!--注意 修改成远程服务器地址--> &lt;dockerHost> http://192.168.43.2:2375&lt;/dockerHost> &lt;dockerDirectory>src/main/docker&lt;/dockerDirectory> &lt;resources> &lt;resource> &lt;targetPath>/&lt;/targetPath> &lt;directory>${project.build.directory}&lt;/directory> &lt;include>${project.build.finalName}.jar&lt;/include> &lt;/resource> &lt;/resources> &lt;/configuration> &lt;dependencies> &lt;dependency> &lt;groupId>org.apache.httpcomponents&lt;/groupId> &lt;artifactId>httpclient&lt;/artifactId> &lt;version>4.5.6&lt;/version> &lt;/dependency> &lt;dependency> &lt;groupId>javax.activation&lt;/groupId> &lt;artifactId>activation&lt;/artifactId> &lt;version>1.1.1&lt;/version> &lt;/dependency> &lt;/dependencies> &lt;/plugin> 需要javax.activation依赖，不然会报java.lang.ClassNotFoundException: javax.activation.DataSource错误。环境配置好后，编写DockerfileFROM openjdk:8-jdk-alpine VOLUME /opt/common ADD dockerdemo-1.0.jar app.jar ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"] EXPOSE 8080 VOLUME ，VOLUME 指向了一个/opt/common的目录，由于 Spring Boot 使用内置的Tomcat容器，Tomcat 默认使用/opt/common作为工作目录。这个命令的效果是：在宿主机的/var/lib/docker目录下创建一个临时文件并把它链接到容器中的/opt/common目录ADD ，拷贝文件并且重命名ENTRYPOINT ，为了缩短 Tomcat 的启动时间，添加java.security.egd的系统属性指向/dev/urandom作为 ENTRYPOINT这里可以安装一款Docker integration插件，可以构建镜像，创建仓库，上传镜像等。安装这个插件后，Dockerfile文件就能显示语法了。其他功能暂时没用到。配置虚拟机环境配置Jdk 8 $ sudo apt-get update $ sudo apt-get install openjdk-8-jdk 使用java -version查看是否安装成功。然后配置jdk环境变量sudo gedit /etc/profile export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 export JRE_HOME=${JAVA_HOME}/jre export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib export PATH=${JAVA_HOME}/bin:$PATH source /etc/profile 配置Maven下载：http://mirrors.shu.edu.cn/apache/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz## 解压 tar vxf apache-maven-3.5.4-bin.tar.gz ## 移动 mv apache-maven-3.5.4 /usr/local/maven3 仍然是在/etc/profile中配置环境变量sudo gedit /etc/profile MAVEN_HOME=/usr/local/maven3 export MAVEN_HOME export PATH=${PATH}:${MAVEN_HOME}/bin source /etc/profile 构建、上传、运行镜像使用docker build插件可以快速构建。也可以在Terminal输入以下命令进行构建。mvn package docker:build 构建成功后，就可以在docker中使用docker images查看镜像。REPOSITORY TAG IMAGE ID CREATED SIZE dockerdemo latest 2d6bfc475fa7 44 hours ago 119MB 运行该镜像docker run -p 8080:8080 -t dockerdemo 运行成功后测试Controller是否成功即可。遇到的问题1、docker构建镜像报错org.apache.http.conn.ConnectTimeoutException:contact timed out如果之前没有配置过Docker的远程访问，那么应该是这个原因。开启API访问服务：$ systemctl show --property=FragmentPath docker FragmentPath=/lib/systemd/system/docker.service $ sudo gedit /lib/systemd/system/docker.service #修改ExecStart=/usr/bin/dockerd -H fd:// 为 ExecStart=/usr/bin/dockerd -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2375 #重载Docker $ sudo systemctl daemon-reload $ sudo systemctl restart docker docker -H tcp://127.0.0.1:2376 version Client: Version: 18.06.1-ce API version: 1.38 Go version: go1.10.3 Git commit: e68fc7a Built: Tue Aug 21 17:24:56 2018 OS/Arch: linux/amd64 Experimental: false Server: Engine: Version: 18.06.1-ce API version: 1.38 (minimum version 1.12) Go version: go1.10.3 Git commit: e68fc7a Built: Tue Aug 21 17:23:21 2018 OS/Arch: linux/amd64 Experimental: false 这样就说明API远程访问已开启。也可通过以下方法验证ps -ef | grep docker 可以看到2375端口已经在监听了。再进行测试查看是否成功。但是还是报了这个错误，网上找了很多没有类似问题，最后找到一个有类似问题的，不过他是将服务器部署到阿里云上的，是因为阿里云控制台里的安全组没有开启2375端口。Docker Maven插件本地构建镜像发布至远程服务器但是我这个是本地的，所以没有效果。只好重装了Ubuntu，意外的成功了，猜想可能是之前的Ubuntu或Docker的配置导致了这个错误。2、报错java.lang.ClassNotFoundException: javax.activation.DataSource是因为docker maven插件缺少javax.activation依赖，加入以下依赖&lt;dependency> &lt;groupId>javax.activation&lt;/groupId> &lt;artifactId>activation&lt;/artifactId> &lt;version>1.1.1&lt;/version> &lt;/dependency> 3、报错Add failed: stat /ver/lib/docker/tmp/docker-builderXXXXXX:no such file or dir报这个错误是因为打包名字不一致，pom.xml的artifactId与Dockerfile镜像名要一致。&nbsp;要是怎么样都不行，重装吧少年!&nbsp;参考资料Spring Boot 2.0(四)：使用 Docker 部署 Spring Bootdocker开启远程访问Docker Maven插件本地构建镜像发布至远程服务器4、为什么使用docker?之Docker建立远程连接]]></content>
+      <categories>
+        <category>Docker</category>
+      </categories>
+      <tags>
+        <tag>SpringBoot</tag>
+        <tag>Docker</tag>
+        <tag>微服务</tag>
       </tags>
   </entry>
   <entry>
@@ -124,8 +124,8 @@
         <category>SpringCloud</category>
       </categories>
       <tags>
-        <tag>Eureka</tag>
         <tag>SpringCloud</tag>
+        <tag>Eureka</tag>
         <tag>报错</tag>
       </tags>
   </entry>
@@ -299,13 +299,13 @@
     <content type="text"><![CDATA[L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":75,"height":150,"scaling":2,"horizontalOffset":10,"verticalOffset":-40},"mobile":{"show":false,"Scaling":0.5},"log":false,"tagMode":false}); window.ityped.init(document.querySelector(‘.ityped’), { strings : [‘ 网瘾少年(女)们，快玩游戏吧’], //可以写无限条句子，只要用逗号隔开 typeSpeed: 155, //打字的速度 backSpeed: 60, //删除字的速度 startDelay: 500, //每一句开始打字停顿的时间 backDelay: 2500, //每一句删除字的停顿时间 loop: false, //是否循环动画 showCursor: true, //是否显示光标 cursorChar: “︳”, //设置光标字符 });#Bullseye]]></content>
   </entry>
   <entry>
-    <title><![CDATA[tags]]></title>
-    <url>%2Ftags%2Findex.html</url>
+    <title><![CDATA[timeline]]></title>
+    <url>%2Ftimeline%2Findex.html</url>
     <content type="text"><![CDATA[]]></content>
   </entry>
   <entry>
-    <title><![CDATA[timeline]]></title>
-    <url>%2Ftimeline%2Findex.html</url>
+    <title><![CDATA[tags]]></title>
+    <url>%2Ftags%2Findex.html</url>
     <content type="text"><![CDATA[]]></content>
   </entry>
 </search>
