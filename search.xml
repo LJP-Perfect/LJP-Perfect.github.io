@@ -196,17 +196,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Ubuntu安装及常见问题解决]]></title>
-    <url>%2Fubuntu.html</url>
-    <content type="text"><![CDATA[搬自自己的csdnUbuntu——从安装到放弃（/逃 ）【此教程包括ubuntu的安装、关机卡死（Nvidia安装）、无法连接wifi等解决方案】]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[ubuntu下配置tensorflow(gpu)]]></title>
     <url>%2Ftensorflow.html</url>
     <content type="text"><![CDATA[搬自自己的csdnUbuntu16.04环境下从Anaconda3安装到Tensorflow(gpu)及pycharm安装和测试mnist完整教程]]></content>
@@ -216,6 +205,17 @@
       <tags>
         <tag>anaconda</tag>
         <tag>tensorflow配置</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Ubuntu安装及常见问题解决]]></title>
+    <url>%2Fubuntu.html</url>
+    <content type="text"><![CDATA[搬自自己的csdnUbuntu——从安装到放弃（/逃 ）【此教程包括ubuntu的安装、关机卡死（Nvidia安装）、无法连接wifi等解决方案】]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -270,18 +270,13 @@
   </entry>
   <entry>
     <title></title>
-    <url>%2F581%2Fstyle.css</url>
-    <content type="text"><![CDATA[body{margin:0;background:#222;margin:20px}svg{width:100%;height:100%;position:fixed;top:0;left:0}span{color:#fff;font-family:sans-serif;opacity:.3}]]></content>
-  </entry>
-  <entry>
-    <title></title>
     <url>%2F581%2Findex.js</url>
     <content type="text"><![CDATA[var svg=document.querySelector("svg"),cursor=svg.createSVGPoint(),arrows=document.querySelector(".arrows"),randomAngle=0,target={x:900,y:249.5},lineSegment={x1:875,y1:280,x2:925,y2:220};function knock(e){randomAngle=Math.random()*Math.PI*.03-.015,TweenMax.to(".arrow-angle use",.3,{opacity:1}),window.addEventListener("mousemove",aim),window.addEventListener("mouseup",loose),aim(e),TweenMax.to("#arc",.3,{opacity:1})}function loose(){window.removeEventListener("mousemove",aim),window.removeEventListener("mouseup",loose),TweenMax.to("#bow",.4,{scaleX:1,transformOrigin:"right center",ease:Elastic.easeOut}),TweenMax.to("#bow polyline",.4,{attr:{points:"88,200 88,250 88,300"},ease:Elastic.easeOut});var e=document.createElementNS("http://www.w3.org/2000/svg","use");e.setAttributeNS("http://www.w3.org/1999/xlink","href","#arrow"),arrows.appendChild(e);var t=MorphSVGPlugin.pathDataToBezier("#arc");TweenMax.to([e],.5,{force3D:!0,bezier:{type:"cubic",values:t,autoRotate:["x","y","rotation"]},onUpdate:hitTest,onUpdateParams:["{self}"],onComplete:onMiss,ease:Linear.easeNone}),TweenMax.to("#arc",.3,{opacity:0}),TweenMax.set(".arrow-angle use",{opacity:0})}function hitTest(e){var t=e.target[0]._gsTransform,a=t.rotation*Math.PI/180,n=getIntersection({x1:t.x,y1:t.y,x2:60*Math.cos(a)+t.x,y2:60*Math.sin(a)+t.y},lineSegment);if(n.segment1&&n.segment2){e.pause();var o=n.x-target.x,r=n.y-target.y,s=".hit";Math.sqrt(o*o+r*r)=0&&w=0&&x]]></content>
   </entry>
   <entry>
-    <title><![CDATA[图库]]></title>
-    <url>%2Fgallery%2Findex.html</url>
-    <content type="text"><![CDATA[]]></content>
+    <title></title>
+    <url>%2F581%2Fstyle.css</url>
+    <content type="text"><![CDATA[body{margin:0;background:#222;margin:20px}svg{width:100%;height:100%;position:fixed;top:0;left:0}span{color:#fff;font-family:sans-serif;opacity:.3}]]></content>
   </entry>
   <entry>
     <title><![CDATA[Who am I]]></title>
@@ -289,9 +284,9 @@
     <content type="text"><![CDATA[关于我浙江理工大学 计算机专业大三在读轻度中二，轻度社交恐惧偏爱简约，喜欢生活充满新鲜感会点Java，目前正在学习搭建后台项目联系我Mail：871560465@qq.comSteam：Freelee（一起Play Game啊）github：https://github.com/LJP-Perfect]]></content>
   </entry>
   <entry>
-    <title><![CDATA[game]]></title>
-    <url>%2Fgame%2Findex.html</url>
-    <content type="text"><![CDATA[L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":75,"height":150,"scaling":2,"horizontalOffset":10,"verticalOffset":-40},"mobile":{"show":false,"Scaling":0.5},"log":false,"tagMode":false}); window.ityped.init(document.querySelector(‘.ityped’), { strings : [‘ 大战三百回合’], //可以写无限条句子，只要用逗号隔开 typeSpeed: 155, //打字的速度 backSpeed: 60, //删除字的速度 startDelay: 500, //每一句开始打字停顿的时间 backDelay: 2500, //每一句删除字的停顿时间 loop: false, //是否循环动画 showCursor: true, //是否显示光标 cursorChar: “︳”, //设置光标字符 });#Bullseye]]></content>
+    <title><![CDATA[图库]]></title>
+    <url>%2Fgallery%2Findex.html</url>
+    <content type="text"><![CDATA[]]></content>
   </entry>
   <entry>
     <title><![CDATA[games]]></title>
@@ -299,13 +294,18 @@
     <content type="text"><![CDATA[L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":75,"height":150,"scaling":2,"horizontalOffset":10,"verticalOffset":-40},"mobile":{"show":false,"Scaling":0.5},"log":false,"tagMode":false}); window.ityped.init(document.querySelector(‘.ityped’), { strings : [‘ 网瘾少年(女)们，快玩游戏吧’], //可以写无限条句子，只要用逗号隔开 typeSpeed: 155, //打字的速度 backSpeed: 60, //删除字的速度 startDelay: 500, //每一句开始打字停顿的时间 backDelay: 2500, //每一句删除字的停顿时间 loop: false, //是否循环动画 showCursor: true, //是否显示光标 cursorChar: “︳”, //设置光标字符 });#Bullseye]]></content>
   </entry>
   <entry>
-    <title><![CDATA[timeline]]></title>
-    <url>%2Ftimeline%2Findex.html</url>
-    <content type="text"><![CDATA[]]></content>
+    <title><![CDATA[game]]></title>
+    <url>%2Fgame%2Findex.html</url>
+    <content type="text"><![CDATA[L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":75,"height":150,"scaling":2,"horizontalOffset":10,"verticalOffset":-40},"mobile":{"show":false,"Scaling":0.5},"log":false,"tagMode":false}); window.ityped.init(document.querySelector(‘.ityped’), { strings : [‘ 大战三百回合’], //可以写无限条句子，只要用逗号隔开 typeSpeed: 155, //打字的速度 backSpeed: 60, //删除字的速度 startDelay: 500, //每一句开始打字停顿的时间 backDelay: 2500, //每一句删除字的停顿时间 loop: false, //是否循环动画 showCursor: true, //是否显示光标 cursorChar: “︳”, //设置光标字符 });#Bullseye]]></content>
   </entry>
   <entry>
     <title><![CDATA[tags]]></title>
     <url>%2Ftags%2Findex.html</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[timeline]]></title>
+    <url>%2Ftimeline%2Findex.html</url>
     <content type="text"><![CDATA[]]></content>
   </entry>
 </search>
