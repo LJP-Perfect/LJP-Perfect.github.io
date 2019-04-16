@@ -27,17 +27,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[你好，陈同学]]></title>
-    <url>%2FNicetomeetyou.html</url>
-    <content type="text"><![CDATA[序章 Prologue—&nbsp;&nbsp;&nbsp;&nbsp;”我喜欢你”—&nbsp;&nbsp;&nbsp;&nbsp;”好啊”条约 Principle未定暂无日常 Daliy4月10日 多云转小雨 星期三&emsp;陈同学说晚上跑完步要做好心理准备，一再强调不要让我抱期待。心想肯定也不会是什么坏事，抱一点期待还是可以的，也不多就一点点。最后她慢慢从书包里拿出一张纸条，不对，应该是一张A4纸，让回去再拆，走前嘱咐我不要抱期待。‘这么大的纸，一定写了不少东西‘暗暗盘算着，打开一看。哇！！！&emsp;emmm，还真的是一点点点都没有呢！！！4月11日 阴 星期四&emsp;今晚充满整个操场的大概只有陈同学和我的哈哈哈，和（一脸凝重大爷蓝牙耳机中的）《小跳蛙》了吧，哈哈哈嗝！4月12日 晴 星期五&emsp;今天发生了一件悲伤的事：突然想起来U盘落在上衣口袋里被我放进洗衣机里洗了，然后发生了一件比悲伤更悲伤的事：我回去找上衣口袋发现空！空！如！也！我以后再也不买了😭&emsp;这样子的话我只能欺负欺负陈同学了，站住别跑，放学后操场见。4月13日 晴 星期六&emsp;陈同学你是玻璃做的吧，训练又伤了，成就支离破碎已收集（2/5），这太惨了吧。玩笑归玩笑，虽然这种受伤不可控，但是以后训练还是小心着点，这么伤下去谁顶得住啊。&emsp;今晚的攻略讨论的还可以，虽然我什么都没攻略出来哈哈哈，但是省了挺多钱的不错不错。还有今晚的800米太可怕了，两个400米冲刺快要了我的狗命，陈同学下次可不可以下手轻一点呢（疯狂眨眼😉，虽然好像并不太可能）。4月14日 阴 星期日&emsp;一大早看到陈同学6点多发的消息，我还在想是不是看错了，顺便让我路过捡一下她（天道有轮回啊）。还是第一次背人去医院，陈同学真的很轻（被绑架了就眨眨眼），背上她走路还带着风诶！！！&emsp;我第一次感觉到我的手机有这么重，拿着手机手都在狂抖（我的手，你也太不争气了吧）。接着就是一上午的挂号拍片，趁取片间隙也算休息了一会。然后就是愉快的Lunch Time：羊老三的羊蝎子，听陈同学说很补。微辣，嗯我信了你的微辣，就差把茶壶给吃了。128→140，冲（吃）啊！！！4月15日 多云 星期一&emsp;今天也是平淡的一天，没有意料之外的事情发生，没有乱七八糟的日程催赶，就很简单。记录 Memory暂无（陈同学是否学有余力写一个展示照片和视频的页面呢（满脸期待），这样就可以直接放到这个博客上了）计划 Schedule&nbsp;&nbsp;五一(5.3-5.5)游玩 横店 浙江金华Story to be continued]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[微服务项目初步搭建]]></title>
     <url>%2Fcloud.html</url>
     <content type="text"><![CDATA[一个初步的微服务项目，docker部署。基于SpringBoot和SpringCloud整合Shiro、JWT、zuul、Eureka、docker、nginx等技术。项目简介这个小项目目前初步搭建好了微服务脚手架的一部分。使用shiro+jwt构建鉴权体系，spring cloud zuul做API网关进行路由转发，nginx通过反向代理对网关进行高可用和负载均衡和静态化，Eureka进行服务治理（Feign进行服务调用）。源码地址技术选型SpringBoot 2.0.4.RELEASESpringCloud Finchley.M9Shiro 1.4.0JWT 3.4.0Maven 3.5.4Jdk 8项目关键项目使用shiro+jwt的鉴权机制，通过JWTFilter将jwt整合到shiro，JWTToken存放用户名。JWTFilter部分代码@Override protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) { if(isLoginAttempt(request,response)){ try{ //检查token executeLogin(request,response); return true; }catch (Exception e){ //token错误 responseError(response,e.getMessage()); } } //请求头不存在Token，可能是未登录时（游客）的访问状态，则无需检查token return true; } shiro中添加JWTFilter，对所有之前（其他过滤器）未匹配到的请求进行过滤。ShiroConfig部分代码 @Bean public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager){ ShiroFilterFactoryBean filterFactoryBean=new ShiroFilterFactoryBean(); Map&lt;String, Filter> filterMap=new HashMap&lt;>(); filterMap.put("jwt",new JWTFilter()); filterFactoryBean.setFilters(filterMap); filterFactoryBean.setSecurityManager(securityManager); Map&lt;String,String> filterChainDefinitionMap=new HashMap&lt;>(); filterChainDefinitionMap.put("/logout","anon"); filterChainDefinitionMap.put("/login","anon"); filterChainDefinitionMap.put("/**","jwt"); filterFactoryBean.setLoginUrl("/login"); filterFactoryBean.setSuccessUrl("/index"); filterFactoryBean.setUnauthorizedUrl("/403"); filterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap); return filterFactoryBean; } 项目出现的BUG打包时，报缺少公共模块jar包的错误。公共模块不需要打包，所以不需要添加maven插件，否则会报错，因为其他模块在打包的时候会自动添加依赖进去，如果这里打包了，其他的模块就找不到该依赖了。父项目添加springboot的maven插件打包时会报Unable to find main class。[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:2.0.4.RELEASE:repackage (default) on project common-util: Execu tion default of goal org.springframework.boot:spring-boot-maven-plugin:2.0.4.RELEASE:repackage failed: Unable to find main class 改成以下的编译和测试的maven插件，项目可以打包成功。这个问题还没有找到合理的解释方案，我想可能是因为spring-boot-maven-plugin要打包成可执行jar包，而公共模块里是没有启动类（main class）的，所以使用此插件会报错。&lt;build> &lt;plugins> &lt;plugin> &lt;groupId>org.apache.maven.plugins&lt;/groupId> &lt;artifactId>maven-compiler-plugin&lt;/artifactId> &lt;version>3.1&lt;/version> &lt;configuration> &lt;source>${java.version}&lt;/source> &lt;target>${java.version}&lt;/target> &lt;/configuration> &lt;/plugin> &lt;plugin> &lt;groupId>org.apache.maven.plugins&lt;/groupId> &lt;artifactId>maven-surefire-plugin&lt;/artifactId> &lt;version>2.19.1&lt;/version> &lt;configuration> &lt;skipTests>true&lt;/skipTests> &lt;!--默认关掉单元测试 --> &lt;/configuration> &lt;/plugin> &lt;/plugins> &lt;/build> 子模块的依赖中加入docker-maven-plugin的插件。此插件可以快速的打包镜像、上传镜像等。最好加入spring-boot-maven-plugin插件，我记得打包过程中出现过问题就是缺少这个插件的原因（好像是空指针异常，记不太清了）。&lt;build> &lt;plugins> &lt;plugin> &lt;groupId>org.springframework.boot&lt;/groupId> &lt;artifactId>spring-boot-maven-plugin&lt;/artifactId> &lt;/plugin> &lt;plugin> &lt;groupId>com.spotify&lt;/groupId> &lt;artifactId>docker-maven-plugin&lt;/artifactId> &lt;version>1.0.0&lt;/version> &lt;executions> &lt;execution> &lt;id>build-image&lt;/id> &lt;phase>package&lt;/phase> &lt;goals> &lt;goal>build&lt;/goal> &lt;/goals> &lt;/execution> &lt;/executions> &lt;configuration> &lt;imageName>${project.parent.artifactId}/${project.artifactId}&lt;/imageName> &lt;dockerHost> http://192.168.43.2:2375&lt;/dockerHost> &lt;dockerDirectory>${project.basedir}&lt;/dockerDirectory> &lt;resources> &lt;resource> &lt;targetPath>/&lt;/targetPath> &lt;directory>${project.build.directory}&lt;/directory> &lt;include>${project.build.finalName}.jar&lt;/include> &lt;/resource> &lt;/resources> &lt;/configuration> &lt;dependencies> &lt;dependency> &lt;groupId>org.apache.httpcomponents&lt;/groupId> &lt;artifactId>httpclient&lt;/artifactId> &lt;version>4.5.6&lt;/version> &lt;/dependency> &lt;dependency> &lt;groupId>javax.activation&lt;/groupId> &lt;artifactId>activation&lt;/artifactId> &lt;version>1.1.1&lt;/version> &lt;/dependency> &lt;/dependencies> &lt;/plugin> &lt;/plugins> &lt;/build> docker不能使用localhost因为 bridge 是 Docker 默认的网络模式，换句话说，我一个 host 上的各个 container 从 docker 获取的 IP 都是不一样的（在主机编译部署后大家都是 localhost，但是在 docker 里面情况就不一样了）。解决方法利用docker的主机名，为eureka的容器配置一个主机名（任意即可），比如eureka-server。eureka-server模块配置文件eureka: client: fetch-registry: false register-with-eureka: false service-url: defaultZone: http://eureka-server:8000/eureka/ eureka-client模块配置文件eureka: client: service-url: defaultZone: http://eureka-server:8000/eureka/ 整合shiro出现No bean of type ‘org.apache.shiro.realm本来是把shiro的一些配置和JWTToken类这些放到公共模块中。但是一直报如上错误，提示我创建shiro.ini，但是这样的话采用硬编码方式把认证授权信息写在INI文件中,可维护性差。没办法，只能把shiro有关的配置和LoginController放在一个模块中。zuul会过滤敏感头部，导致丢失token。zuul会过滤掉Cookie, Set-Cookie, Authorization的header信息，导致jwt的token在转发时丢失。在ZuulProperties源码中可以看到默认的sensitiveHeaders如下。（如果头部出现含有sensitiveHeaders的信息，就不会添加到转发的请求中）private Set&lt;String> sensitiveHeaders = new LinkedHashSet(Arrays.asList("Cookie", "Set-Cookie", "Authorization")); 只要修改zuul的sensitiveHeaders配置即可。设置为空，设置为空，设置为空。zuul: sensitive-headers: nginx的http模块。我只要在nginx配置文件加入http{}，就会报“http&quot; directive is not allowed here in /etc/nginx/conf.d/app.conf错误。真的是个谜之错误，-_-。参考资料Spirng boot maven多模块打包踩坑Spring Cloud实战小贴士：Zuul处理Cookie和重定向gitee项目 micro-serviceexception is feign.RetryableException: Connection refused (Connection refused) executing GET http：//……]]></content>
@@ -45,12 +34,12 @@
         <category>SpringCloud</category>
       </categories>
       <tags>
+        <tag>Docker</tag>
         <tag>SpringBoot</tag>
         <tag>SpringCloud</tag>
         <tag>Shiro</tag>
         <tag>Nginx</tag>
         <tag>JWT</tag>
-        <tag>Docker</tag>
         <tag>Eureka</tag>
       </tags>
   </entry>
@@ -85,8 +74,8 @@
         <category>Docker</category>
       </categories>
       <tags>
-        <tag>SpringBoot</tag>
         <tag>Docker</tag>
+        <tag>SpringBoot</tag>
         <tag>微服务</tag>
       </tags>
   </entry>
@@ -196,6 +185,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Ubuntu安装及常见问题解决]]></title>
+    <url>%2Fubuntu.html</url>
+    <content type="text"><![CDATA[搬自自己的csdnUbuntu——从安装到放弃（/逃 ）【此教程包括ubuntu的安装、关机卡死（Nvidia安装）、无法连接wifi等解决方案】]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[ubuntu下配置tensorflow(gpu)]]></title>
     <url>%2Ftensorflow.html</url>
     <content type="text"><![CDATA[搬自自己的csdnUbuntu16.04环境下从Anaconda3安装到Tensorflow(gpu)及pycharm安装和测试mnist完整教程]]></content>
@@ -208,17 +208,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Ubuntu安装及常见问题解决]]></title>
-    <url>%2Fubuntu.html</url>
-    <content type="text"><![CDATA[搬自自己的csdnUbuntu——从安装到放弃（/逃 ）【此教程包括ubuntu的安装、关机卡死（Nvidia安装）、无法连接wifi等解决方案】]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[线性回归之波士顿房价预测]]></title>
     <url>%2FLinear_Regression.html</url>
     <content type="text"><![CDATA[最近学习了线性回归，然后拿经典数据集来练习。数据集大小为[506,13],一共506个样本，13个特征([‘CRIM’ ‘ZN’ ‘INDUS’ ‘CHAS’ ‘NOX’ ‘RM’ ‘AGE’ ‘DIS’ ‘RAD’ ‘TAX’ ‘PTRATIO’ ‘B’ ‘LSTAT’])，target大小为[506，1]可以先通过matplotlib来直观感受这些特征分别与房价的关系。为了简化训练，只选择了第6个特征[‘RM’]来训练（第6个和最后一个特征的直观看上去比较符合线性回归），13个特征只在506个样本下比较难去拟合好。下面是代码解释#import data boston=load_boston() data=boston.data[:,(5)] label=boston.target #reshape column vector data=data.reshape(-1,1) label=label.reshape(-1,1) 因为这里我们只导入一列数据，我们需要把 [ ] reshape为[[ ]]，否则会报以下错误Reshape your data either using array.reshape(-1, 1) if your data has a single feature or array.reshape(1, -1) if it contains a single sample.接下来，对特征数据做特征缩放（对于单个特征来说，特征缩放的作用并不是特别大，但习惯起见，还是对其进行特征缩放，但是在多特征中，特征缩放显得尤其重要，可以加快梯度下降，见图）接下来就是定义一些占位符和权值、偏置等变量偏置初始化0即可，权值最好不要初始化为0，使用正太分布随机值，如果使用0去初始化权值。在反向传播计算会出现不同权值变化量始终相同从而导致权值更新出现异常（推导见图）。#getting number of training set &amp; number of feature m_feature=data.shape[1] m_train=tf.placeholder(dtype=tf.float32) x=tf.placeholder(dtype=tf.float32,shape=[None,m_feature],name=&#39;input&#39;) y_=tf.placeholder(dtype=tf.float32,shape=[None,1],name=&#39;output&#39;) #Define weights and offsets viriables #Initialize weights using a Gaussian distribution #Initialize the bias to 0 w=tf.Variable(tf.truncated_normal(shape=[m_feature,1],stddev=0.003,dtype=tf.float32)) b=tf.Variable(tf.zeros(shape=[1],dtype=tf.float32)) 然后就是前向计算和反向计算，这个没有什么好说的，注意cost function的选择即可#Forward calculation y=tf.add(tf.matmul(x,w),b) #use the mean square error function learn_rate=0.08 loss=tf.reduce_sum(tf.pow(y_-y,2)/(2*m_train)) train_step=tf.train.GradientDescentOptimizer(learn_rate).minimize(loss) 这里我们定义一个list来存储训练过程中的loss值，再定义一个张量error来简单评估测试的误差#variable train_loss is used to save the loss value of each iteration train_loss =[] #error error = tf.reduce_mean(y-y_) 然后就开始进行训练这里的重点在于数据集的划分，一开始用的是train_test_split将数据集划分成两份，70%为训练集，30%为测试集。但是听取别人建议后，使用k折交叉验证法。所谓k折交叉验证法，就是将数据集分成k份，每次取其中k-1份作为训练集，另外1份作为测试集，这样的好处是所有数据都有被利用，可以得到更好的参数，但是耗时会长一点（见图）。with tf.Session() as sess: sess.run(init) for i in range(150): #k-fold cross validation kf=KFold(n_splits=10) for train_index,test_index in kf.split(data): X_train,X_test=data[train_index],data[test_index] Y_train,Y_test=label[train_index],label[test_index] w_,b_,_,l=sess.run(fetches=[w,b,train_step,loss], feed_dict={x: X_train, y_: Y_train,m_train:X_train.shape[0]}) if i%10==0: print(&quot;Epoch {0} : error:{1}&quot;.format(i,sess.run(error,feed_dict={x:X_test,y_:Y_test}))) train_loss.append(l) #print(&quot;Epoch {0} : loss{1}&quot;.format(i, l)) 我用两种方法进行比较，首先是k（取10）折交叉验证的结果然后是train_test_split分类方法的结果还是可以比较明显的看到，不管是loss值还是拟合程度。明显都是k折交叉验证法效果比较好。完整代码请参考：https://github.com/LJP-Perfect/Machine-Learning/tree/master/Linear%20Regression总结几点：1、对特征进行选取2、多特征时进行特征缩放3、选取合适的cost function4、使用k折交叉验证还未解决的问题：1、初始数据的分析2、学习速率和k值的选取3、选择更好的cost function]]></content>
@@ -226,12 +215,12 @@
         <category>Machine Learning</category>
       </categories>
       <tags>
+        <tag>Machine Learning</tag>
         <tag>feature scaling</tag>
         <tag>boston price</tag>
         <tag>bp算法</tag>
         <tag>k折交叉验证</tag>
         <tag>线性回归</tag>
-        <tag>Machine Learning</tag>
       </tags>
   </entry>
   <entry>
@@ -250,8 +239,8 @@
   </entry>
   <entry>
     <title></title>
-    <url>%2Fbaidu_verify_D4umA77Wgx.html</url>
-    <content type="text"><![CDATA[D4umA77Wgx]]></content>
+    <url>%2Fbaidu_verify_w2CJZAKCk7.html</url>
+    <content type="text"><![CDATA[w2CJZAKCk7]]></content>
   </entry>
   <entry>
     <title></title>
@@ -260,8 +249,8 @@
   </entry>
   <entry>
     <title></title>
-    <url>%2Fbaidu_verify_w2CJZAKCk7.html</url>
-    <content type="text"><![CDATA[w2CJZAKCk7]]></content>
+    <url>%2Fbaidu_verify_D4umA77Wgx.html</url>
+    <content type="text"><![CDATA[D4umA77Wgx]]></content>
   </entry>
   <entry>
     <title></title>
@@ -270,13 +259,13 @@
   </entry>
   <entry>
     <title></title>
-    <url>%2F581%2Findex.js</url>
-    <content type="text"><![CDATA[var svg=document.querySelector("svg"),cursor=svg.createSVGPoint(),arrows=document.querySelector(".arrows"),randomAngle=0,target={x:900,y:249.5},lineSegment={x1:875,y1:280,x2:925,y2:220};function knock(e){randomAngle=Math.random()*Math.PI*.03-.015,TweenMax.to(".arrow-angle use",.3,{opacity:1}),window.addEventListener("mousemove",aim),window.addEventListener("mouseup",loose),aim(e),TweenMax.to("#arc",.3,{opacity:1})}function loose(){window.removeEventListener("mousemove",aim),window.removeEventListener("mouseup",loose),TweenMax.to("#bow",.4,{scaleX:1,transformOrigin:"right center",ease:Elastic.easeOut}),TweenMax.to("#bow polyline",.4,{attr:{points:"88,200 88,250 88,300"},ease:Elastic.easeOut});var e=document.createElementNS("http://www.w3.org/2000/svg","use");e.setAttributeNS("http://www.w3.org/1999/xlink","href","#arrow"),arrows.appendChild(e);var t=MorphSVGPlugin.pathDataToBezier("#arc");TweenMax.to([e],.5,{force3D:!0,bezier:{type:"cubic",values:t,autoRotate:["x","y","rotation"]},onUpdate:hitTest,onUpdateParams:["{self}"],onComplete:onMiss,ease:Linear.easeNone}),TweenMax.to("#arc",.3,{opacity:0}),TweenMax.set(".arrow-angle use",{opacity:0})}function hitTest(e){var t=e.target[0]._gsTransform,a=t.rotation*Math.PI/180,n=getIntersection({x1:t.x,y1:t.y,x2:60*Math.cos(a)+t.x,y2:60*Math.sin(a)+t.y},lineSegment);if(n.segment1&&n.segment2){e.pause();var o=n.x-target.x,r=n.y-target.y,s=".hit";Math.sqrt(o*o+r*r)=0&&w=0&&x]]></content>
+    <url>%2F581%2Fstyle.css</url>
+    <content type="text"><![CDATA[body{margin:0;background:#222;margin:20px}svg{width:100%;height:100%;position:fixed;top:0;left:0}span{color:#fff;font-family:sans-serif;opacity:.3}]]></content>
   </entry>
   <entry>
     <title></title>
-    <url>%2F581%2Fstyle.css</url>
-    <content type="text"><![CDATA[body{margin:0;background:#222;margin:20px}svg{width:100%;height:100%;position:fixed;top:0;left:0}span{color:#fff;font-family:sans-serif;opacity:.3}]]></content>
+    <url>%2F581%2Findex.js</url>
+    <content type="text"><![CDATA[var svg=document.querySelector("svg"),cursor=svg.createSVGPoint(),arrows=document.querySelector(".arrows"),randomAngle=0,target={x:900,y:249.5},lineSegment={x1:875,y1:280,x2:925,y2:220};function knock(e){randomAngle=Math.random()*Math.PI*.03-.015,TweenMax.to(".arrow-angle use",.3,{opacity:1}),window.addEventListener("mousemove",aim),window.addEventListener("mouseup",loose),aim(e),TweenMax.to("#arc",.3,{opacity:1})}function loose(){window.removeEventListener("mousemove",aim),window.removeEventListener("mouseup",loose),TweenMax.to("#bow",.4,{scaleX:1,transformOrigin:"right center",ease:Elastic.easeOut}),TweenMax.to("#bow polyline",.4,{attr:{points:"88,200 88,250 88,300"},ease:Elastic.easeOut});var e=document.createElementNS("http://www.w3.org/2000/svg","use");e.setAttributeNS("http://www.w3.org/1999/xlink","href","#arrow"),arrows.appendChild(e);var t=MorphSVGPlugin.pathDataToBezier("#arc");TweenMax.to([e],.5,{force3D:!0,bezier:{type:"cubic",values:t,autoRotate:["x","y","rotation"]},onUpdate:hitTest,onUpdateParams:["{self}"],onComplete:onMiss,ease:Linear.easeNone}),TweenMax.to("#arc",.3,{opacity:0}),TweenMax.set(".arrow-angle use",{opacity:0})}function hitTest(e){var t=e.target[0]._gsTransform,a=t.rotation*Math.PI/180,n=getIntersection({x1:t.x,y1:t.y,x2:60*Math.cos(a)+t.x,y2:60*Math.sin(a)+t.y},lineSegment);if(n.segment1&&n.segment2){e.pause();var o=n.x-target.x,r=n.y-target.y,s=".hit";Math.sqrt(o*o+r*r)=0&&w=0&&x]]></content>
   </entry>
   <entry>
     <title><![CDATA[Who am I]]></title>
@@ -284,8 +273,13 @@
     <content type="text"><![CDATA[关于我浙江理工大学 计算机专业大三在读轻度中二，轻度社交恐惧偏爱简约，喜欢生活充满新鲜感会点Java，目前正在学习搭建后台项目联系我Mail：871560465@qq.comSteam：Freelee（一起Play Game啊）github：https://github.com/LJP-Perfect]]></content>
   </entry>
   <entry>
-    <title><![CDATA[图库]]></title>
-    <url>%2Fgallery%2Findex.html</url>
+    <title><![CDATA[game]]></title>
+    <url>%2Fgame%2Findex.html</url>
+    <content type="text"><![CDATA[L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":75,"height":150,"scaling":2,"horizontalOffset":10,"verticalOffset":-40},"mobile":{"show":false,"Scaling":0.5},"log":false,"tagMode":false}); window.ityped.init(document.querySelector(‘.ityped’), { strings : [‘ 大战三百回合’], //可以写无限条句子，只要用逗号隔开 typeSpeed: 155, //打字的速度 backSpeed: 60, //删除字的速度 startDelay: 500, //每一句开始打字停顿的时间 backDelay: 2500, //每一句删除字的停顿时间 loop: false, //是否循环动画 showCursor: true, //是否显示光标 cursorChar: “︳”, //设置光标字符 });#Bullseye]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[timeline]]></title>
+    <url>%2Ftimeline%2Findex.html</url>
     <content type="text"><![CDATA[]]></content>
   </entry>
   <entry>
@@ -294,18 +288,13 @@
     <content type="text"><![CDATA[L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":75,"height":150,"scaling":2,"horizontalOffset":10,"verticalOffset":-40},"mobile":{"show":false,"Scaling":0.5},"log":false,"tagMode":false}); window.ityped.init(document.querySelector(‘.ityped’), { strings : [‘ 网瘾少年(女)们，快玩游戏吧’], //可以写无限条句子，只要用逗号隔开 typeSpeed: 155, //打字的速度 backSpeed: 60, //删除字的速度 startDelay: 500, //每一句开始打字停顿的时间 backDelay: 2500, //每一句删除字的停顿时间 loop: false, //是否循环动画 showCursor: true, //是否显示光标 cursorChar: “︳”, //设置光标字符 });#Bullseye]]></content>
   </entry>
   <entry>
-    <title><![CDATA[game]]></title>
-    <url>%2Fgame%2Findex.html</url>
-    <content type="text"><![CDATA[L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":75,"height":150,"scaling":2,"horizontalOffset":10,"verticalOffset":-40},"mobile":{"show":false,"Scaling":0.5},"log":false,"tagMode":false}); window.ityped.init(document.querySelector(‘.ityped’), { strings : [‘ 大战三百回合’], //可以写无限条句子，只要用逗号隔开 typeSpeed: 155, //打字的速度 backSpeed: 60, //删除字的速度 startDelay: 500, //每一句开始打字停顿的时间 backDelay: 2500, //每一句删除字的停顿时间 loop: false, //是否循环动画 showCursor: true, //是否显示光标 cursorChar: “︳”, //设置光标字符 });#Bullseye]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[tags]]></title>
     <url>%2Ftags%2Findex.html</url>
     <content type="text"><![CDATA[]]></content>
   </entry>
   <entry>
-    <title><![CDATA[timeline]]></title>
-    <url>%2Ftimeline%2Findex.html</url>
+    <title><![CDATA[图库]]></title>
+    <url>%2Fgallery%2Findex.html</url>
     <content type="text"><![CDATA[]]></content>
   </entry>
 </search>
