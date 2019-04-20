@@ -1,1 +1,258 @@
-<link rel="stylesheet" class="aplayer-secondary-style-marker" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://unpkg.com/meting@2.0.1/dist/Meting.min.js"></script>!function(){var e=function(e){this.element=e,this.datesContainer=this.element.getElementsByClassName("cd-h-timeline__dates")[0],this.line=this.datesContainer.getElementsByClassName("cd-h-timeline__line")[0],this.fillingLine=this.datesContainer.getElementsByClassName("cd-h-timeline__filling-line")[0],this.date=this.line.getElementsByClassName("cd-h-timeline__date"),this.selectedDate=this.line.getElementsByClassName("cd-h-timeline__date--selected")[0],this.dateValues=function(e){for(var t=[],n=0;n<e.date.length;n++){var a="e.date[n].getAttribute("data-date"),i=a.split("T");if(i.length">1)var l=i[0].split("/"),s=i[1].split(":");else if(i[0].indexOf(":")>=0)var l=["2000","0","0"],s=i[0].split(":");else var l=i[0].split("/"),s=["0","0"];var d=new Date(l[2],l[1]-1,l[0],s[0],s[1]);t.push(d)}return t}(this),this.minLapse=function(e){for(var t=[],n=1;n<e.datevalues.length;n++){var a="s(e.dateValues[n-1],e.dateValues[n]);a">0&&t.push(a)}return t.length>0?Math.min.apply(null,t):864e5}(this),this.navigation=this.element.getElementsByClassName("cd-h-timeline__navigation"),this.contentWrapper=this.element.getElementsByClassName("cd-h-timeline__events")[0],this.content=this.contentWrapper.getElementsByClassName("cd-h-timeline__event"),this.eventsMinDistance=60,this.eventsMaxDistance=200,this.translate=0,this.lineLength=0,this.oldDateIndex=Util.getIndexInArray(this.date,this.selectedDate),this.newDateIndex=this.oldDateIndex,function(e){for(var t=0,a=0;a<e.datevalues.length;a++){var i="0==a?0:a-1,d=s(e.dateValues[i],e.dateValues[a]),r=(Math.round(d/e.minLapse)+2)*e.eventsMinDistance;r<e.eventsMinDistance?r=e.eventsMinDistance:r">e.eventsMaxDistance&&(r=e.eventsMaxDistance),t+=r,e.date[a].setAttribute("style","left:"+t+"px")}e.line.style.width=t+e.eventsMinDistance+"px",e.lineLength=t+e.eventsMinDistance,Util.addClass(e.element,"cd-h-timeline--loaded"),n(e,e.selectedDate),l(e,"next")}(this),function(e){var i=e;i.navigation[0].addEventListener("click",function(e){e.preventDefault(),t(i,"prev")}),i.navigation[1].addEventListener("click",function(e){e.preventDefault(),t(i,"next")}),new SwipeContent(i.datesContainer),i.datesContainer.addEventListener("swipeLeft",function(e){t(i,"next")}),i.datesContainer.addEventListener("swipeRight",function(e){t(i,"prev")});for(var l=0;l<i.date.length;l++)!function(e){i.date[e].addeventlistener("click",function(e){e.preventdefault(),n(i,e.target)}),i.content[e].addeventlistener("animationend",function(t){e==i.newdateindex&&i.newdateindex!=i.olddateindex&&a(i)})}(l)}(this)};function t(e,t){var="" n="e.datesContainer.offsetWidth;t&&(e.translate="next"==t?e.translate-n+e.eventsMinDistance:e.translate+n-e.eventsMinDistance),0-e.translate">e.lineLength-n&&(e.translate=n-e.lineLength),e.translate>0&&(e.translate=0),e.line.style.transform="translateX("+e.translate+"px)",0==e.translate?Util.addClass(e.navigation[0],"cd-h-timeline__navigation--inactive"):Util.removeClass(e.navigation[0],"cd-h-timeline__navigation--inactive"),e.translate==n-e.lineLength?Util.addClass(e.navigation[1],"cd-h-timeline__navigation--inactive"):Util.removeClass(e.navigation[1],"cd-h-timeline__navigation--inactive")}function n(e,t){e.newDateIndex=Util.getIndexInArray(e.date,t),e.oldDateIndex=Util.getIndexInArray(e.date,e.selectedDate),Util.removeClass(e.selectedDate,"cd-h-timeline__date--selected"),Util.addClass(e.date[e.newDateIndex],"cd-h-timeline__date--selected"),e.selectedDate=e.date[e.newDateIndex],function(e){for(var t=0;t<e.date.length;t++)t<e.newdateindex?util.addclass(e.date[t],"cd-h-timeline__date--older-event"):util.removeclass(e.date[t],"cd-h-timeline__date--older-event")}(e),function(e){if(e.newdateindex>e.oldDateIndex)var t="cd-h-timeline__event--selected cd-h-timeline__event--enter-right",n="cd-h-timeline__event--leave-left";else if(e.newDateIndex<e.olddateindex)var t="cd-h-timeline__event--selected cd-h-timeline__event--enter-left" ,n="cd-h-timeline__event--leave-right" ;else="" var="" ;util.addclass(e.content[e.newdateindex],t),e.newdateindex!="e.oldDateIndex&&(Util.removeClass(e.content[e.oldDateIndex],"cd-h-timeline__event--selected"),Util.addClass(e.content[e.oldDateIndex],n),e.contentWrapper.style.height=e.content[e.newDateIndex].offsetHeight+"px")}(e),function(e){var" a(e){e.contentwrapper.style.height="null,Util.removeClass(e.content[e.newDateIndex],"cd-h-timeline__event--enter-right" cd-h-timeline__event--enter-left"),util.removeclass(e.content[e.olddateindex],"cd-h-timeline__event--leave-right="" cd-h-timeline__event--leave-left")}function="" i(e,t){var="" a="next" =="t?e.newDateIndex+1:e.newDateIndex-1;a<0||a">=e.date.length||(n(e,e.date[a]),l(e,t))}function l(e,n){var a=window.getComputedStyle(e.selectedDate,null),i=Number(a.getPropertyValue("left").replace("px","")),l=e.datesContainer.offsetWidth;("next"==n&&i>=l-e.translate||"prev"==n&&i<=-e.translate)&&(e.translate=l 2-i,t(e,!1))}function="" s(e,t){return="" math.round(t-e)}window.horizontaltimeline="e;var" d="document.getElementsByClassName("js-cd-h-timeline"),r=[];if(d.length">0){for(var o=0;o<d.length;o++)r.push(new e(d[o]));document.addeventlistener("keydown",function(e){e.keycode&&39="=e.keyCode||e.key&&"arrowright"==e.key.toLowerCase()?c("next"):(e.keyCode&&37==e.keyCode||e.key&&"arrowleft"==e.key.toLowerCase())&&c("prev")})}function" c(e){for(var="" t="0;t<r.length;t++)h(d[t])&&i(r[t],e)}function" h(e){for(var="" t<window.pageyoffset+window.innerheight&&n<window.pagexoffset+window.innerwidth&&t+i="">window.pageYOffset&&n+a>window.pageXOffset}}();</d.length;o++)r.push(new></=-e.translate)&&(e.translate=l></e.olddateindex)var></e.date.length;t++)t<e.newdateindex?util.addclass(e.date[t],"cd-h-timeline__date--older-event"):util.removeclass(e.date[t],"cd-h-timeline__date--older-event")}(e),function(e){if(e.newdateindex></i.date.length;l++)!function(e){i.date[e].addeventlistener("click",function(e){e.preventdefault(),n(i,e.target)}),i.content[e].addeventlistener("animationend",function(t){e==i.newdateindex&&i.newdateindex!=i.olddateindex&&a(i)})}(l)}(this)};function></e.datevalues.length;a++){var></e.datevalues.length;n++){var></e.date.length;n++){var>
+(function() {
+  // Horizontal Timeline - by CodyHouse.co
+  var HorizontalTimeline = function(element) {
+		this.element = element;
+		this.datesContainer = this.element.getElementsByClassName('cd-h-timeline__dates')[0];
+		this.line = this.datesContainer.getElementsByClassName('cd-h-timeline__line')[0]; // grey line in the top timeline section
+		this.fillingLine = this.datesContainer.getElementsByClassName('cd-h-timeline__filling-line')[0]; // green filling line in the top timeline section  
+		this.date = this.line.getElementsByClassName('cd-h-timeline__date');
+		this.selectedDate = this.line.getElementsByClassName('cd-h-timeline__date--selected')[0];
+		this.dateValues = parseDate(this);
+		this.minLapse = calcMinLapse(this);
+		this.navigation = this.element.getElementsByClassName('cd-h-timeline__navigation');
+		this.contentWrapper = this.element.getElementsByClassName('cd-h-timeline__events')[0];
+		this.content = this.contentWrapper.getElementsByClassName('cd-h-timeline__event');
+		
+		this.eventsMinDistance = 60; // min distance between two consecutive events (in px)
+		this.eventsMaxDistance = 200; // max distance between two consecutive events (in px)
+		this.translate = 0; // this will be used to store the translate value of this.line
+		this.lineLength = 0; //total length of this.line
+		
+		// store index of selected and previous selected dates
+		this.oldDateIndex = Util.getIndexInArray(this.date, this.selectedDate);
+		this.newDateIndex = this.oldDateIndex;
+
+		initTimeline(this);
+		initEvents(this);
+  };
+
+  function initTimeline(timeline) {
+  	// set dates left position
+  	var left = 0;
+		for (var i = 0; i < timeline.dateValues.length; i++) { 
+			var j = (i == 0) ? 0 : i - 1;
+	    var distance = daydiff(timeline.dateValues[j], timeline.dateValues[i]),
+	    	distanceNorm = (Math.round(distance/timeline.minLapse) + 2)*timeline.eventsMinDistance;
+	
+	    if(distanceNorm < timeline.eventsMinDistance) {
+	    	distanceNorm = timeline.eventsMinDistance;
+	    } else if(distanceNorm > timeline.eventsMaxDistance) {
+	    	distanceNorm = timeline.eventsMaxDistance;
+	    }
+	    left = left + distanceNorm;
+	    timeline.date[i].setAttribute('style', 'left:' + left+'px');
+		}
+		
+		// set line/filling line dimensions
+    timeline.line.style.width = (left + timeline.eventsMinDistance)+'px';
+		timeline.lineLength = left + timeline.eventsMinDistance;
+		// reveal timeline
+		Util.addClass(timeline.element, 'cd-h-timeline--loaded');
+		selectNewDate(timeline, timeline.selectedDate);
+		resetTimelinePosition(timeline, 'next');
+  };
+
+  function initEvents(timeline) {
+  	var self = timeline;
+		// click on arrow navigation
+		self.navigation[0].addEventListener('click', function(event){
+			event.preventDefault();
+			translateTimeline(self, 'prev');
+		});
+		self.navigation[1].addEventListener('click', function(event){
+			event.preventDefault();
+			translateTimeline(self, 'next');
+		});
+
+		//swipe on timeline
+		new SwipeContent(self.datesContainer);
+		self.datesContainer.addEventListener('swipeLeft', function(event){
+			translateTimeline(self, 'next');
+		});
+		self.datesContainer.addEventListener('swipeRight', function(event){
+			translateTimeline(self, 'prev');
+		});
+
+		//select a new event
+		for(var i = 0; i < self.date.length; i++) {
+			(function(i){
+				self.date[i].addEventListener('click', function(event){
+					event.preventDefault();
+					selectNewDate(self, event.target);
+				});
+
+				self.content[i].addEventListener('animationend', function(event){
+					if( i == self.newDateIndex && self.newDateIndex != self.oldDateIndex) resetAnimation(self);
+				});
+			})(i);
+		}
+  };
+
+  function updateFilling(timeline) { // update fillingLine scale value
+		var dateStyle = window.getComputedStyle(timeline.selectedDate, null),
+			left = dateStyle.getPropertyValue("left"),
+			width = dateStyle.getPropertyValue("width");
+		
+		left = Number(left.replace('px', '')) + Number(width.replace('px', ''))/2;
+		timeline.fillingLine.style.transform = 'scaleX('+(left/timeline.lineLength)+')';
+	};
+
+  function translateTimeline(timeline, direction) { // translate timeline (and date elements)
+  	var containerWidth = timeline.datesContainer.offsetWidth;
+  	if(direction) {
+  		timeline.translate = (direction == 'next') ? timeline.translate - containerWidth + timeline.eventsMinDistance : timeline.translate + containerWidth - timeline.eventsMinDistance;
+  	}
+    if( 0 - timeline.translate > timeline.lineLength - containerWidth ) timeline.translate = containerWidth - timeline.lineLength;
+    if( timeline.translate > 0 ) timeline.translate = 0;
+
+    timeline.line.style.transform = 'translateX('+timeline.translate+'px)';
+    // update the navigation items status (toggle inactive class)
+		(timeline.translate == 0 ) ? Util.addClass(timeline.navigation[0], 'cd-h-timeline__navigation--inactive') : Util.removeClass(timeline.navigation[0], 'cd-h-timeline__navigation--inactive');
+		(timeline.translate == containerWidth - timeline.lineLength ) ? Util.addClass(timeline.navigation[1], 'cd-h-timeline__navigation--inactive') : Util.removeClass(timeline.navigation[1], 'cd-h-timeline__navigation--inactive');
+  };
+
+	function selectNewDate(timeline, target) { // ned date has been selected -> update timeline
+		timeline.newDateIndex = Util.getIndexInArray(timeline.date, target);
+		timeline.oldDateIndex = Util.getIndexInArray(timeline.date, timeline.selectedDate);
+		Util.removeClass(timeline.selectedDate, 'cd-h-timeline__date--selected');
+		Util.addClass(timeline.date[timeline.newDateIndex], 'cd-h-timeline__date--selected');
+		timeline.selectedDate = timeline.date[timeline.newDateIndex];
+		updateOlderEvents(timeline);
+		updateVisibleContent(timeline);
+		updateFilling(timeline);
+	};
+
+	function updateOlderEvents(timeline) { // update older events style
+		for(var i = 0; i < timeline.date.length; i++) {
+			(i < timeline.newDateIndex) ? Util.addClass(timeline.date[i], 'cd-h-timeline__date--older-event') : Util.removeClass(timeline.date[i], 'cd-h-timeline__date--older-event');
+		}
+	};
+
+	function updateVisibleContent(timeline) { // show content of new selected date
+		if (timeline.newDateIndex > timeline.oldDateIndex) {
+			var classEntering = 'cd-h-timeline__event--selected cd-h-timeline__event--enter-right',
+				classLeaving = 'cd-h-timeline__event--leave-left';
+		} else if(timeline.newDateIndex < timeline.oldDateIndex) {
+			var classEntering = 'cd-h-timeline__event--selected cd-h-timeline__event--enter-left',
+				classLeaving = 'cd-h-timeline__event--leave-right';
+		} else {
+			var classEntering = 'cd-h-timeline__event--selected',
+				classLeaving = '';
+		}
+
+		Util.addClass(timeline.content[timeline.newDateIndex], classEntering);
+		if (timeline.newDateIndex != timeline.oldDateIndex) {
+			Util.removeClass(timeline.content[timeline.oldDateIndex], 'cd-h-timeline__event--selected');
+			Util.addClass(timeline.content[timeline.oldDateIndex], classLeaving);
+			timeline.contentWrapper.style.height = timeline.content[timeline.newDateIndex].offsetHeight + 'px';
+		}
+	};
+
+	function resetAnimation(timeline) { // reset content classes when entering animation is over
+		timeline.contentWrapper.style.height = null;
+		Util.removeClass(timeline.content[timeline.newDateIndex], 'cd-h-timeline__event--enter-right cd-h-timeline__event--enter-left');
+		Util.removeClass(timeline.content[timeline.oldDateIndex], 'cd-h-timeline__event--leave-right cd-h-timeline__event--leave-left');
+	};
+
+	function keyNavigateTimeline(timeline, direction) { // navigate the timeline using the keyboard
+		var newIndex = (direction == 'next') ? timeline.newDateIndex + 1 : timeline.newDateIndex - 1;
+		if(newIndex < 0 || newIndex >= timeline.date.length) return;
+		selectNewDate(timeline, timeline.date[newIndex]);
+		resetTimelinePosition(timeline, direction);
+	};
+	
+	function resetTimelinePosition(timeline, direction) { //translate timeline according to new selected event position
+		var eventStyle = window.getComputedStyle(timeline.selectedDate, null),
+			eventLeft = Number(eventStyle.getPropertyValue('left').replace('px', '')),
+			timelineWidth = timeline.datesContainer.offsetWidth;
+
+    if( (direction == 'next' && eventLeft >= timelineWidth - timeline.translate) || (direction == 'prev' && eventLeft <= - timeline.translate) ) {
+    	timeline.translate = timelineWidth/2 - eventLeft;
+    	translateTimeline(timeline, false);
+    }
+  };
+
+  function parseDate(timeline) { // get timestamp value for each date
+		var dateArrays = [];
+		for(var i = 0; i < timeline.date.length; i++) {
+			var singleDate = timeline.date[i].getAttribute('data-date'),
+				dateComp = singleDate.split('T');
+			
+			if( dateComp.length > 1 ) { //both DD/MM/YEAR and time are provided
+				var dayComp = dateComp[0].split('/'),
+					timeComp = dateComp[1].split(':');
+			} else if( dateComp[0].indexOf(':') >=0 ) { //only time is provide
+				var dayComp = ["2000", "0", "0"],
+					timeComp = dateComp[0].split(':');
+			} else { //only DD/MM/YEAR
+				var dayComp = dateComp[0].split('/'),
+					timeComp = ["0", "0"];
+			}
+			var	newDate = new Date(dayComp[2], dayComp[1]-1, dayComp[0], timeComp[0], timeComp[1]);
+			dateArrays.push(newDate);
+		}
+	  return dateArrays;
+  };
+
+  function calcMinLapse(timeline) { // determine the minimum distance among events
+		var dateDistances = [];
+		for(var i = 1; i < timeline.dateValues.length; i++) { 
+	    var distance = daydiff(timeline.dateValues[i-1], timeline.dateValues[i]);
+	    if(distance > 0) dateDistances.push(distance);
+		}
+
+		return (dateDistances.length > 0 ) ? Math.min.apply(null, dateDistances) : 86400000;
+	};
+
+	function daydiff(first, second) { // time distance between events
+		return Math.round((second-first));
+	};
+
+  window.HorizontalTimeline = HorizontalTimeline;
+
+  var horizontalTimeline = document.getElementsByClassName('js-cd-h-timeline'),
+  	horizontalTimelineTimelineArray = [];
+  if(horizontalTimeline.length > 0) {
+		for(var i = 0; i < horizontalTimeline.length; i++) {
+			horizontalTimelineTimelineArray.push(new HorizontalTimeline(horizontalTimeline[i])); 
+		}
+		// navigate the timeline when inside the viewport using the keyboard
+		document.addEventListener('keydown', function(event){
+			if( (event.keyCode && event.keyCode == 39) || ( event.key && event.key.toLowerCase() == 'arrowright') ) {
+				updateHorizontalTimeline('next'); // move to next event
+			} else if((event.keyCode && event.keyCode == 37) || ( event.key && event.key.toLowerCase() == 'arrowleft')) {
+				updateHorizontalTimeline('prev'); // move to prev event
+			}
+		});
+  };
+
+  function updateHorizontalTimeline(direction) {
+		for(var i = 0; i < horizontalTimelineTimelineArray.length; i++) {
+			if(elementInViewport(horizontalTimeline[i])) keyNavigateTimeline(horizontalTimelineTimelineArray[i], direction);
+		}
+  };
+
+  /*
+		How to tell if a DOM element is visible in the current viewport?
+		http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport
+	*/
+	function elementInViewport(el) {
+		var top = el.offsetTop;
+		var left = el.offsetLeft;
+		var width = el.offsetWidth;
+		var height = el.offsetHeight;
+
+		while(el.offsetParent) {
+		    el = el.offsetParent;
+		    top += el.offsetTop;
+		    left += el.offsetLeft;
+		}
+
+		return (
+		    top < (window.pageYOffset + window.innerHeight) &&
+		    left < (window.pageXOffset + window.innerWidth) &&
+		    (top + height) > window.pageYOffset &&
+		    (left + width) > window.pageXOffset
+		);
+	}
+}());
