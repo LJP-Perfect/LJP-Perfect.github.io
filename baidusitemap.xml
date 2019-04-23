@@ -5,7 +5,7 @@
     
   <url>
     <loc>https://freelee.me/Nicetomeetyou.html</loc>
-    <lastmod>2019-04-21T04:00:00.000Z</lastmod>
+    <lastmod>2019-04-23T04:00:00.000Z</lastmod>
     <data>
         <display>
         <title>你好，陈同学</title>
@@ -17,6 +17,30 @@
            
              
               <breadCrumb title="生活" url="https://freelee.me/categories/%E7%94%9F%E6%B4%BB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://freelee.me/%E6%9C%8D%E5%8A%A1%E5%A4%96%E5%8C%85%E5%9B%BD%E8%B5%9B%E6%80%BB%E7%BB%93.html</loc>
+    <lastmod>2019-04-23T03:30:14.100Z</lastmod>
+    <data>
+        <display>
+        <title>服务外包国赛总结</title>
+        <pubTime>2019-04-13T00:56:53.476Z</pubTime>
+        
+        <tag>竞赛</tag>
+         
+        <tag>服务外包</tag>
+         
+        <tag>总结</tag>
+         
+         
+           
+             
+              <breadCrumb title="竞赛" url="https://freelee.me/categories/%E7%AB%9E%E8%B5%9B/"/>
           
         </display>
     </data>
@@ -37,30 +61,6 @@
            
              
               <breadCrumb title="Linux" url="https://freelee.me/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://freelee.me/%E6%9C%8D%E5%8A%A1%E5%A4%96%E5%8C%85%E5%9B%BD%E8%B5%9B%E6%80%BB%E7%BB%93.html</loc>
-    <lastmod>2019-04-13T01:01:44.915Z</lastmod>
-    <data>
-        <display>
-        <title>服务外包国赛总结</title>
-        <pubTime>2019-04-13T00:56:53.476Z</pubTime>
-        
-        <tag>竞赛</tag>
-         
-        <tag>服务外包</tag>
-         
-        <tag>总结</tag>
-         
-         
-           
-             
-              <breadCrumb title="竞赛" url="https://freelee.me/categories/%E7%AB%9E%E8%B5%9B/"/>
           
         </display>
     </data>
