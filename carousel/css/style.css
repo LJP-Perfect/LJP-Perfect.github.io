@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * 设置outer的样式
+ */
+#outer{
+    /*设置宽和高*/
+    width: 540px;
+    height: 350px;
+    /*居中*/
+    margin: 50px auto;
+    /*设置背景颜色*/
+    background-color: darkgray;
+    /*设置padding*/
+    padding: 10px 0;
+    /*开启相对定位*/
+    position: relative;
+    /*裁剪溢出的内容*/
+    overflow: hidden;
+}
+
+/*设置imgList*/
+#imgList{
+    /*去除项目符号*/
+    list-style: none;
+    /*设置ul的宽度*/
+    /*	width: 2600px;*/
+    /*开启绝对定位*/
+    position: absolute;
+    /*设置偏移量*/
+    /*
+     * 每向左移动540px，就会显示到下一张图片
+     */
+    left: 0px;
+}
+
+/*设置图片中的li*/
+#imgList li{
+    /*设置浮动*/
+    float: left;
+    /*设置左右外边距*/
+    margin: 0 10px;
+}
+
+/*设置导航按钮*/
+#navDiv{
+    /*开启绝对定位*/
+    position: absolute;
+    /*设置位置*/
+    bottom: 10px;
+
+}
+
+#navDiv a{
+    /*设置超链接浮动*/
+    float: left;
+    /*设置超链接的宽和高*/
+    width: 15px;
+    height: 15px;
+    /*设置背景颜色*/
+    background-color: red;
+    /*设置左右外边距*/
+    margin: 0 5px;
+    /*设置透明*/
+    opacity: 0.8;
+    /*兼容IE8透明*/
+    filter: alpha(opacity=80);
+}
+
+/*设置鼠标移入的效果*/
+#navDiv a:hover{
+    background-color: black;
+}
+
+/*btns*/
+.btns{
+    position:absolute;
+    width:50px;
+    height:60px;
+    top:50%;
+    margin-top:-25px;
+    line-height:57px;
+    text-align:center;
+    cursor:pointer;
+    background:rgba(0,0,0,0.1);
+    z-index:100;
+
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select: none;
+
+    -webkit-transition: all 0.1s ease;
+    -moz-transition: all 0.1s ease;
+    -o-transition: all 0.1s ease;
+    -ms-transition: all 0.1s ease;
+    transition: all 0.1s ease;
+}
+
+.btns:hover{
+    background:rgba(0,0,0,0.3);
+}
+
+#next{right:-50px; border-radius:7px 0px 0px 7px;}
+#previous{left:-50px; border-radius:0px 7px 7px 7px;}
+
+#next{right:0px;}
+#previous{left:0px;}
