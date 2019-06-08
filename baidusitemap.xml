@@ -5,7 +5,7 @@
     
   <url>
     <loc>https://freelee.me/Nicetomeetyou.html</loc>
-    <lastmod>2019-06-03T04:00:00.000Z</lastmod>
+    <lastmod>2019-06-09T04:00:00.000Z</lastmod>
     <data>
         <display>
         <title>你好，陈同学</title>
@@ -22,6 +22,9 @@
     </data>
     </url>
 
+    
+    
+    
     
     
   <url>
@@ -165,6 +168,8 @@
         <title>线性回归之波士顿房价预测</title>
         <pubTime>2018-05-11T04:00:00.000Z</pubTime>
         
+        <tag>Machine Learning</tag>
+         
         <tag>feature scaling</tag>
          
         <tag>boston price</tag>
@@ -174,8 +179,6 @@
         <tag>k折交叉验证</tag>
          
         <tag>线性回归</tag>
-         
-        <tag>Machine Learning</tag>
          
          
            
