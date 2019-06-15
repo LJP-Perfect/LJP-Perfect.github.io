@@ -13,9 +13,7 @@ h1, h2, span {
 }
 
 @media screen and (min-width: 670px) {
-  .mobile {
-    display: none;
-  }
+
 
   h1, h2, span {
     display: block;
