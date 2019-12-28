@@ -5,7 +5,7 @@
     
   <url>
     <loc>https://freelee.me/Nicetomeetyou.html</loc>
-    <lastmod>2019-12-24T04:00:00.000Z</lastmod>
+    <lastmod>2019-12-27T04:00:00.000Z</lastmod>
     <data>
         <display>
         <title>你好，陈同学</title>
@@ -165,8 +165,6 @@
         <title>线性回归之波士顿房价预测</title>
         <pubTime>2018-05-11T04:00:00.000Z</pubTime>
         
-        <tag>Machine Learning</tag>
-         
         <tag>feature scaling</tag>
          
         <tag>boston price</tag>
@@ -176,6 +174,8 @@
         <tag>k折交叉验证</tag>
          
         <tag>线性回归</tag>
+         
+        <tag>Machine Learning</tag>
          
          
            
@@ -395,9 +395,9 @@
         <title>记一次惨痛的Docker部署SpringBoot经历</title>
         <pubTime>2018-10-29T04:00:00.000Z</pubTime>
         
-        <tag>SpringBoot</tag>
-         
         <tag>Docker</tag>
+         
+        <tag>SpringBoot</tag>
          
         <tag>微服务</tag>
          
@@ -439,6 +439,8 @@
         <title>微服务项目初步搭建</title>
         <pubTime>2018-11-11T04:00:00.000Z</pubTime>
         
+        <tag>Docker</tag>
+         
         <tag>SpringBoot</tag>
          
         <tag>SpringCloud</tag>
@@ -448,8 +450,6 @@
         <tag>Nginx</tag>
          
         <tag>JWT</tag>
-         
-        <tag>Docker</tag>
          
         <tag>Eureka</tag>
          
