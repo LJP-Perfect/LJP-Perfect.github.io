@@ -1,0 +1,259 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="referrer" content="no-referrer">
+    <link rel="stylesheet" type="text/css" href="https://freelee-blog.oss-cn-beijing.aliyuncs.com/anniversary/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="https://freelee-blog.oss-cn-beijing.aliyuncs.com/anniversary/chat.css">
+
+</head>
+<body>
+
+<div class="chatContainer">
+    <div class="chatBtn">
+        <i class="iconfont icon-xiaoxi1"></i>
+    </div>
+    <div class="chat-message-num"></div>
+    <div class="chatBox" ref="chatBox" hidden>
+        <div class="chatBox-head">
+            <div class="chatBox-head-one">
+                去年今日
+                <div class="chat-close" style="margin: 10px 10px 0 0;font-size: 14px">关闭</div>
+            </div>
+            <div class="chatBox-head-two">
+                <div class="chat-return">返回</div>
+                <div class="chat-people">
+                    <div class="ChatInfoHead">
+                        <img src="https://freelee-blog.oss-cn-beijing.aliyuncs.com/anniversary/avatar_1.jpg" style="overflow: hidden;" alt="头像"/>
+						
+                    </div>
+                    <div class="ChatInfoName">这</div>
+                </div>
+                <div class="chat-close">关闭</div>
+            </div>
+        </div>
+        <div class="chatBox-info">
+            <div class="chatBox-list" ref="chatBoxlist">
+                <div class="chat-list-people">
+                    <div><img src="https://freelee-blog.oss-cn-beijing.aliyuncs.com/anniversary/avatar_1.jpg" alt="头像"/></div>
+					 <div><img src="https://freelee-blog.oss-cn-beijing.aliyuncs.com/anniversary/avatar_2.jpg" style=" width: 40px;height: 40px;border-radius: 50%;background: #eee;overflow: hidden;margin-top: 7.5px" alt="头像"/></div>
+                    <div class="chat-name">
+                        <p>羊羊和汪汪</p>
+                    </div>
+                    <div class="message-num">2019-04-06</div>
+                </div>
+               <div class="chat-list-people">
+                    <div><img src="https://freelee-blog.oss-cn-beijing.aliyuncs.com/anniversary/avatar_1.jpg" alt="头像"/></div>
+					 <div><img src="https://freelee-blog.oss-cn-beijing.aliyuncs.com/anniversary/avatar_2.jpg" style=" width: 40px;height: 40px;border-radius: 50%;background: #eee;overflow: hidden;margin-top: 7.5px" alt="头像"/></div>
+                    <div class="chat-name">
+                        <p>羊羊和汪汪</p>
+                    </div>
+                    <div class="message-num">2019-04-06</div>
+                </div>
+            </div>
+			
+            <div class="chatBox-kuang" ref="chatBoxkuang">
+                <div class="chatBox-content" style="height: 495px">
+				
+                    <div class="chatBox-content-demo" id="chatBox-content-demo" style="background-image: url(https://freelee-blog.oss-cn-beijing.aliyuncs.com/anniversary/IMG_2303.JPG);height: 495px;">
+
+                        <div class="clearfloat">
+                            <div class="author-name">
+                                <small class="chat-date">2017-12-02</small>
+                            </div>
+                            <div class="left">
+                                <div class="chat-avatars"><img src="https://freelee-blog.oss-cn-beijing.aliyuncs.com/anniversary/avatar_1.jpg" alt="头像"/></div>
+
+                                <div class="chat-message">
+                                    给你看张图
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="clearfloat">
+                            <div class="author-name">
+                                <small class="chat-date">2017-12-02 </small>
+                            </div>
+                            <div class="left">
+                                <div class="chat-avatars"><img src="https://freelee-blog.oss-cn-beijing.aliyuncs.com/anniversary/avatar_1.jpg" alt="头像"/></div>
+                                <div class="chat-message">
+                                   
+                            </div>
+                        </div>
+
+                        <div class="clearfloat">
+                            <div class="author-name">
+                                <small class="chat-date">2017-12-02 </small>
+                            </div>
+                            <div class="right">
+                                <div class="chat-message">嗯，适合做壁纸</div>
+                                <div class="chat-avatars"><img src="https://freelee-blog.oss-cn-beijing.aliyuncs.com/anniversary/avatar_2.jpg" alt="头像"/></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+				
+               
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script>
+
+    screenFuc();
+    function screenFuc() {
+        var topHeight = $(".chatBox-head").innerHeight();//聊天头部高度
+        //屏幕小于768px时候,布局change
+        var winWidth = $(window).innerWidth();
+        if (winWidth <= 768) {
+            var totalHeight = $(window).height(); //页面整体高度
+            $(".chatBox-info").css("height", totalHeight - topHeight);
+            var infoHeight = $(".chatBox-info").innerHeight();//聊天头部以下高度
+            //中间内容高度
+            $(".chatBox-content").css("height", infoHeight - 46);
+            $(".chatBox-content-demo").css("height", infoHeight - 46);
+
+            $(".chatBox-list").css("height", totalHeight - topHeight);
+            $(".chatBox-kuang").css("height", totalHeight - topHeight);
+            $(".div-textarea").css("width", winWidth - 106);
+        } else {
+            $(".chatBox-info").css("height", 495);
+            $(".chatBox-content").css("height", 495);
+            $(".chatBox-content-demo").css("height", 495);
+            $(".chatBox-list").css("height", 495);
+            $(".chatBox-kuang").css("height", 495);
+            $(".div-textarea").css("width", 260);
+        }
+    }
+    (window.onresize = function () {
+        screenFuc();
+    })();
+    //未读信息数量为空时
+    var totalNum = $(".chat-message-num").html();
+    if (totalNum == "") {
+        $(".chat-message-num").css("padding", 0);
+    }
+    $(".message-num").each(function () {
+        var wdNum = $(this).html();
+        if (wdNum == "") {
+            $(this).css("padding", 0);
+        }
+    });
+
+
+    //打开/关闭聊天框
+    $(".chatBtn").click(function () {
+        $(".chatBox").toggle(10);
+    })
+    $(".chat-close").click(function () {
+        $(".chatBox").toggle(10);
+    })
+    //进聊天页面
+    $(".chat-list-people").each(function () {
+        $(this).click(function () {
+            var n = $(this).index();
+            $(".chatBox-head-one").toggle();
+            $(".chatBox-head-two").toggle();
+            $(".chatBox-list").fadeToggle();
+            $(".chatBox-kuang").fadeToggle();
+
+            //传名字
+            $(".ChatInfoName").text($(this).children(".chat-name").children("p").eq(0).html());
+
+            //传头像
+           
+            //聊天框默认最底部
+            $(document).ready(function () {
+                $("#chatBox-content-demo").scrollTop($("#chatBox-content-demo")[0].scrollHeight);
+            });
+        })
+    });
+
+    //返回列表
+    $(".chat-return").click(function () {
+        $(".chatBox-head-one").toggle(1);
+        $(".chatBox-head-two").toggle(1);
+        $(".chatBox-list").fadeToggle(1);
+        $(".chatBox-kuang").fadeToggle(1);
+    });
+
+    //      发送信息
+    $("#chat-fasong").click(function () {
+        var textContent = $(".div-textarea").html().replace(/[\n\r]/g, '<br>')
+        if (textContent != "") {
+            $(".chatBox-content-demo").append("<div class=\"clearfloat\">" +
+                "<div class=\"author-name\"><small class=\"chat-date\">来自未来时间</small> </div> " +
+                
+                "<div class=\"chat-avatars\"><img src=\"https://freelee-blog.oss-cn-beijing.aliyuncs.com/anniversary/avatar_1.jpg\" alt=\"头像\" /></div> </div> </div>"+
+				"<div class=\"left\"> <div class=\"chat-message\"> " + textContent + " </div> " );
+            //发送后清空输入框
+            $(".div-textarea").html("");
+            //聊天框默认最底部
+            $(document).ready(function () {
+                $("#chatBox-content-demo").scrollTop($("#chatBox-content-demo")[0].scrollHeight);
+            });
+        }
+    });
+
+    //      发送表情
+    $("#chat-biaoqing").click(function () {
+        $(".biaoqing-photo").toggle();
+    });
+    $(document).click(function () {
+        $(".biaoqing-photo").css("display", "none");
+    });
+    $("#chat-biaoqing").click(function (event) {
+        event.stopPropagation();//阻止事件
+    });
+
+    $(".emoji-picker-image").each(function () {
+        $(this).click(function () {
+            var bq = $(this).parent().html();
+            console.log(bq)
+            $(".chatBox-content-demo").append("<div class=\"clearfloat\">" +
+                "<div class=\"author-name\"><small class=\"chat-date\">来自未来时间</small> </div> " +
+				 "<div class=\"chat-avatars\"><img src=\"https://freelee-blog.oss-cn-beijing.aliyuncs.com/anniversary/avatar_1.jpg\" alt=\"头像\" /></div> </div> </div>"+
+                "<div class=\"left\"> <div class=\"chat-message\"> " + bq + " </div> " 
+               );
+            //发送后关闭表情框
+            $(".biaoqing-photo").toggle();
+            //聊天框默认最底部
+            $(document).ready(function () {
+                $("#chatBox-content-demo").scrollTop($("#chatBox-content-demo")[0].scrollHeight);
+            });
+        })
+    });
+
+    //      发送图片
+    function selectImg(pic) {
+        if (!pic.files || !pic.files[0]) {
+            return;
+        }
+        var reader = new FileReader();
+        reader.onload = function (evt) {
+            var images = evt.target.result;
+            $(".chatBox-content-demo").append("<div class=\"clearfloat\">" +
+                "<div class=\"author-name\"><small class=\"chat-date\">2017-12-02 14:26:58</small> </div> " +
+				 "<div class=\"chat-avatars\"><img src=\"https://freelee-blog.oss-cn-beijing.aliyuncs.com/anniversary/avatar_1.jpg\" alt=\"头像\" /></div> </div> </div>"+
+                "<div class=\"left\"> <div class=\"chat-message\"><img src=" + images + "></div> " 
+               );
+            //聊天框默认最底部
+            $(document).ready(function () {
+                $("#chatBox-content-demo").scrollTop($("#chatBox-content-demo")[0].scrollHeight);
+            });
+        };
+        reader.readAsDataURL(pic.files[0]);
+
+    }
+
+
+</script>
+
+</body>
+</html>
