@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://freelee.me/about/index.html</loc>
+    
+    <lastmod>2020-09-13T01:33:51.579Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://freelee.me/Nicetomeetyou.html</loc>
     
-    <lastmod>2020-09-09T04:00:00.000Z</lastmod>
+    <lastmod>2020-09-12T04:00:00.000Z</lastmod>
     
   </url>
   
@@ -152,13 +159,6 @@
     <loc>https://freelee.me/cloud.html</loc>
     
     <lastmod>2019-04-07T12:28:13.400Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://freelee.me/about/index.html</loc>
-    
-    <lastmod>2019-03-01T01:51:37.026Z</lastmod>
     
   </url>
   
